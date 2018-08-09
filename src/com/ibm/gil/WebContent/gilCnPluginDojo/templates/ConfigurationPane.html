@@ -1,0 +1,196 @@
+<div>
+	<table class="propertyTable" role="presentation">
+<!-- 		<tr> -->
+<!-- 			<td class="propertyRowLabel"><label for="gilBackEnd_param1">Backend Server:</label></td> -->
+<!-- 			<td class="propertyRowValue"> -->
+<!-- 			<select data-dojo-type="ecm.widget.Select" -->
+<!-- 			 		data-dojo-attach-point="backendServerField" -->
+<!-- 			  		data-dojo-attach-event="onChange: _onParamChange"  -->
+<!-- 			  		id="${id}_backendSelect"> -->
+	           
+<!-- 	            <option value="0">DEVELOPMENT</option> -->
+<!-- 	            <option value="1">ALTERNATE DEVELOPMENT</option> -->
+<!-- 				<option value="2">USER TEST</option> -->
+				
+<!-- 			</select> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+
+<!-- 	<tr> -->
+<!-- 			<td class="propertyRowLabel"> -->
+<!-- 				<span class="required">*</span> -->
+<!-- 				<label  for="${id}_icnSchema">ICN Schema:</label>&nbsp; -->
+<!-- 				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="icnFieldHelp" >Required field. Enter the ICN schema.</div> -->
+<!-- 			</td> -->
+<!-- 			<td class="propertyRowValue"> -->
+			
+<!-- 				<input id="${id}_icnSchema" name="${id}_icnSchema"  -->
+<!-- 				data-dojo-attach-point="icnSchema" style="width: 119px;" -->
+<!-- 				 data-dojo-type="ecm.widget.ValidationTextBox" -->
+<!-- 				 data-dojo-attach-event="onKeyUp: _onParamChange" -->
+<!-- 				 required="true" -->
+<!-- 				  trim="true" /><br> -->
+
+<!-- 			</td> -->
+<!-- 		</tr> -->
+		<tr>
+			<td class="propertyRowLabel">
+				<span class="required">*</span>
+				<label  for="${id}_gcmsServer">GCMS Server:</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="gcmsFieldHelp" >Required field. Enter the GCMS Server.</div>
+			</td>
+			<td class="propertyRowValue">
+			
+				<input id="${id}_gcmsServer" name="${id}_gcmsServer" 
+				data-dojo-attach-point="gcmsServer" style="width: 336px;"
+				 data-dojo-type="ecm.widget.ValidationTextBox"
+				 style="width: 530px;"
+				 data-dojo-attach-event="onKeyUp: _onParamChange"
+				 required="true"
+				  trim="true" /><br>
+<!-- 			   <div -->
+<!-- 			   data-dojo-attach-point="gilWebAppHostnameField"  -->
+<!-- 			   data-dojo-attach-event="onKeyUp: _onParamChange" -->
+<!-- 			    maxLength="256"  -->
+<!-- 			    data-dojo-type="ecm.widget.ValidationTextBox"  -->
+<!-- 			    required="true" trim="true" propercase="false"></div> -->
+			</td>
+		</tr>
+	<tr>
+			<td class="propertyRowLabel">
+				<span class="required">*</span>
+				<label  for="${id}_rdcServer">RDC Server:</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="rdcFieldHelp" >Required field. Enter the RDC Server.</div>
+			</td>
+			<td class="propertyRowValue">
+			
+				<input id="${id}_rdcServer" name="${id}_rdcServer" 
+				data-dojo-attach-point="rdcServer" 
+				 style="width: 530px;"
+				 data-dojo-type="ecm.widget.ValidationTextBox"
+				 data-dojo-attach-event="onKeyUp: _onParamChange"
+				 required="true"
+				  trim="true" /><br>
+
+			</td>
+		</tr>
+			<tr>
+			<td class="propertyRowLabel">
+				<span class="required">*</span>
+				<label  for="gilBackEnd_param2">ACCESS_LEVEL_PRIVILEGES:</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="accessLevelPrivilegesLabel" ></div>
+			</td>
+			<td class="propertyRowValue">
+			   <div
+			   data-dojo-attach-point="accessLevelPrivileges" 
+			   data-dojo-attach-event="onKeyUp: _onParamChange"
+			    maxLength="256" 
+			    data-dojo-type="ecm.widget.ValidationTextBox" 
+			    required="true" trim="true" propercase="false"></div>
+			</td>
+		</tr>
+			<tr>
+			<td class="propertyRowLabel">
+				
+				<label  for="${id}_icfsDevSchema">ICFS US Dev SP Schema:</label>&nbsp;
+				
+			</td>
+			<td class="propertyRowValue">
+			
+				<input id="${id}_icfsDevSchema" name="${id}_icfsDevSchema" 
+				data-dojo-attach-point="icfsDevSchema" style="width: 336px;"
+				 data-dojo-type="ecm.widget.ValidationTextBox"
+				 data-dojo-attach-event="onKeyUp: _onParamChange"
+				  trim="true"
+				   /><br>
+
+			</td>
+		</tr>
+		
+			<tr>
+			<td class="propertyRowLabel">
+				
+				<label  for="${id}_gilSchema">GILCN Schema:</label>&nbsp;
+				
+			</td>
+			<td class="propertyRowValue">
+			
+				<input id="${id}_gilSchema" name="${id}_gilSchema" 
+				data-dojo-attach-point="gilSchema" style="width: 336px;"
+				 data-dojo-type="ecm.widget.ValidationTextBox"
+				 data-dojo-attach-event="onKeyUp: _onParamChange"
+				  trim="true"
+				  required="true" /><br>
+
+			</td>
+		</tr>
+				<tr>
+			<td class="propertyRowLabel">
+				
+				<label  for="${id}_gilGcmsUser">GIL GCMS User:</label>&nbsp;
+				
+			</td>
+			<td class="propertyRowValue">
+			
+				<input id="${id}_gilGcmsUser" name="${id}_gilGcmsUser" 
+				data-dojo-attach-point="gilGcmsUser" style="width: 336px;"
+				 data-dojo-type="ecm.widget.ValidationTextBox"
+				 data-dojo-attach-event="onKeyUp: _onParamChange"
+				  trim="true"
+				  required="true" /><br>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				
+				<label  for="${id}_gilGcmsPw">GIL GCMS Pw:</label>&nbsp;
+				
+			</td>
+			<td class="propertyRowValue">
+			
+				<input id="${id}_gilGcmsPw" name="${id}_gilGcmsPw" 
+				data-dojo-attach-point="gilGcmsPw" style="width: 336px;"
+				 data-dojo-type="ecm.widget.ValidationTextBox"
+				 data-dojo-attach-event="onKeyUp: _onParamChange"
+				 type="password"
+				  trim="true"
+				  required="true" /><br>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="India GST Effective Date">India GST Effective Date:</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div data-dojo-attach-point="inGSTEffDate" 
+				   name="${id}_inGSTEffDate" id="${id}_inGSTEffDate" 
+					data-dojo-type="dijit/form/DateTextBox"
+					style="width: 336px;"
+					data-dojo-attach-event="onChange: _onParamChange"
+					constraints="{datePattern:'MM/dd/yyyy'}"
+					placeholder="MM/dd/yyyy">
+			    </div>
+			</td>
+		</tr>
+			<tr>
+			<td class="propertyRowLabel">
+				
+				<label  for="${id}_region">Region:</label>&nbsp;
+				
+			</td>
+			<td class="propertyRowValue">
+			
+				<input id="${id}_region" name="${id}_region" 
+				data-dojo-attach-point="region" style="width: 336px;"
+				 data-dojo-type="ecm.widget.ValidationTextBox"
+				 data-dojo-attach-event="onKeyUp: _onParamChange"
+				  trim="true"
+				  required="true" /><br>
+
+			</td>
+		</tr>
+		
+    </table> 
+</div>

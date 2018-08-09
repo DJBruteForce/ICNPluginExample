@@ -1,0 +1,82 @@
+<div class= "OEM>
+<div data-dojo-type="dijit/form/Form" id="${id}_oemProductForm"
+	data-dojo-id="${id}_oemProductForm"
+	data-dojo-attach-point="oemProductForm" encType="multipart/form-data"
+	action="" method="">
+	
+	<div>
+		<div id="oemTableLeft">
+			<input type="checkbox" id="${id}_ibmLenovoEquipment" data-dojo-attach-point="ibmLenovoEquipment"
+					data-dojo-type="dijit/form/CheckBox"> <label for="dbox1">include IBM / Lenovo equipment</label> <br><br>
+			
+		
+		
+				<label  for="${id}_equipmentType" ">Equipment Type</label>&nbsp;<br>		
+				<input  data-dojo-attach-point="equipmentType" name="${id}_equipmentType" id="${id}_equipmentType" style="width: 525px;" data-dojo-type="ecm.widget.Select"> <br><br>	
+						
+			    <label  for="${id}_manufacturerName" >Manufacturer Name</label>&nbsp;	<br>	
+			    <input data-dojo-attach-point="manufacturerName" name="${id}_manufacturerName" id="${id}_manufacturerName"  style="width: 275px;" data-dojo-type="ecm.widget.Select"/><br>
+					
+			
+	</div>		
+	<div id="oemTableRight">	
+	
+	          	<div>
+			   <input data-dojo-attach-point="hertz" name="${id}_hertz"  id="${id}_hertz" maxLength="width: 25px" 	data-dojo-type="ecm.widget.ValidationTextBox"/>
+			   <label for="${id}_hertz">GHZ/MHZ</label>&nbsp; 
+			    </div> <br>			    
+			    
+			   <div>
+			   <input class="inchLabel" data-dojo-attach-point="inch" 	name="${id}_inch" id="${id}_inch" maxLength="width: 25px" data-dojo-type="ecm.widget.ValidationTextBox"/>				
+			   <label  for="${id}_inch">INCH</label>
+			   </div><br>	
+						
+			  <div>
+   			  <input  data-dojo-attach-point="memory" name="${id}_memory" id="${id}_memory" maxLength="width: 25px"  data-dojo-type="ecm.widget.ValidationTextBox"/>
+			  <label   for="${id}_memory">GB/MB</label>
+			  </div><br>
+			  
+			  <div>
+			  <input data-dojo-attach-point="processor" name="${id}_processor" id="${id}_processor" maxLength="width: 25px" data-dojo-type="ecm.widget.ValidationTextBox"/>
+			  <label class="processorLabel1" for="${id}_processor">PROCESSOR</label>
+			  </div><br>
+			
+					<div id="${id}_queryInfo">
+						<button class="buttonPad" id="${id}_queryInfo"
+							data-dojo-type="dijit.form.Button" data-dojo-attach-point="add">Query
+							for Info</button>
+					</div>
+			
+		</div> <br>
+<table>
+<tr>
+			<td class="propertyRowValue">
+			   <div style="display: none;"
+				   data-dojo-attach-point="userId" 
+				   name="${id}_userId" id="${id}_userId"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+</tr>
+</table>				
+		
+   
+<div class="oemProductGrid"  id="${id}_oemProductTable"></div>
+
+	
+</div>
+</div>
+
+	
+
+
+
+
+
+
+

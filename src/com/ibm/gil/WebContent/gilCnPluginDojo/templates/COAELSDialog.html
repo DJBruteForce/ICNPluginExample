@@ -1,0 +1,139 @@
+<div data-dojo-type="dijit/form/Form" id="${id}_coaForm" data-dojo-id="${id}_coaForm"  data-dojo-attach-point="coaForm"  
+ encType="multipart/form-data" action="" method="">
+  <table>
+   <tbody id="coaTBody">
+
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="coaNumber">COA Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				    data-dojo-attach-point="coaNumber" 
+				  	name="${id}_coaNumber" id="${id}_coaNumber"
+				    maxLength="9" 
+				     tabindex="1" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				>
+					
+			    </div>
+			</td>
+			
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="coaAmount">COA Amount</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="coaAmount" 
+					name="${id}_coaAmount" id="${id}_coaAmount"
+				    tabindex="2" 
+				    maxLength="16" 
+				    data-dojo-attach-event="onChange: formatAmount"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" regexp="^(0*[0-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[0-9][0-9]*)$"  
+				    invalidMessage="COA Amount is invalid."
+				    trim="true" >
+			    </div>
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+
+				<label  for="coaCurrency">Currency</label>&nbsp;
+
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="coaCurrency" 
+				   name="${id}_coaCurrency" 
+				   id="${id}_coaCurrency"
+				   tabindex="4" 
+				    maxLength="3" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" >
+			    </div>
+
+			</td>
+		</tr>	
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="coaOfferingLetterNumber">Offer Letter Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="coaOfferingLetterNumber" 
+				   name="${id}_coaOfferingLetterNumber" 
+				   id="${id}_coaOfferingLetterNumber"
+				   tabindex="4" 
+				    maxLength="10" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" >
+			    </div>
+			</td>
+		</tr>
+				<tr >
+			<td class="propertyRowLabel">
+			<label  id="${id}_coaOLValididityDate" for="customerNumber"  >Offer Letter Validity Date</label>
+
+			</td>
+			<td class="propertyRowValue">
+			
+			    <div
+			   		data-dojo-attach-point="coaOLValididityDate" 
+				   name="${id}_coaOLValididityDate" id="${id}_coaOLValididityDate" 
+				    tabindex="5" 
+				     
+					data-dojo-type="dijit/form/DateTextBox"
+					constraints="{ min: '01/01/1950',  }" 
+					required='false'
+				>
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  id="coaCustomerNameLabel" for="coaCustomerName" 
+				data-dojo-attach-point="customerNameLabel" >Customer Name</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				    data-dojo-attach-point="coaCustomerName" 
+				    tabindex="6" 
+				    style="width: 380px;"
+				    name="${id}_coaCustomerName" id="${id}_coaCustomerName"
+				    maxLength="50" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true"  >
+			    </div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  id="coaSignedby" for="coaSignedby" 
+				data-dojo-attach-point="coaSignedby" >Signed By</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				    data-dojo-attach-point="coaSignedby" 
+				    tabindex="7" 
+				    style="width: 450px;"
+				    name="${id}_coaSignedby" id="${id}_coaSignedby"
+				    maxLength="80" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true"  >
+			    </div>
+			</td>
+		</tr>
+
+		</tbody>
+    </table>
+
+    </div>

@@ -1,0 +1,10 @@
+{
+    "name": "GilCNPlugin",
+    "description": "GilCNPlugin",
+    "dependencies": {
+        "dojo": "~1.9.2",
+        "dijit": "~1.9.2",
+        "dojox": "~1.9.2"
+    },
+    "dojoBuild": "GilCNPlugin.profile.js"
+}

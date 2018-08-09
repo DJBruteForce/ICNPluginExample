@@ -1,0 +1,753 @@
+/*****GLOBAL STYLES TO BE APPLIED IN ALL gil CM8.5****************************************
+******************************************************************************************/
+/***style which could be enabled if icn3.0.3 is installed, cause some styles are getting affected with this new version************************
+***********************************************************************************************************************************************
+	.oneui .dijitButton .dijitButtonNode, .oneui .dijitDropDownButton .dijitButtonNode, .oneui .dijitComboButton .dijitButtonNode, .oneui .dijitToggleButton .dijitButtonNode {
+    background: #93b6dfcc !important;
+    border-radius: 4px;
+   
+	}
+	.oneui .dijitButton .dijitButtonNode, .oneui .dijitDropDownButton .dijitButtonNode, .oneui .dijitComboButton .dijitButtonNode, .oneui .dijitToggleButton .dijitButtonNode {
+    
+    text-shadow: initial;
+    
+}
+.oneui .dijitSelect {
+    
+    background: #9ac3f3 !important;
+}
+
+********Just uncomment this if needed.****************************************************************************************/
+/****Banner user logged should appear in the color inherited (white)**/
+.oneui.ecm.GILTheme01 .trailer .dijitReset{
+	 color: inherit !important;
+	 background-color:black;
+		
+}
+/*****Black letters***/
+.oneui.ecm.GILTheme01 .dijitReset{		
+/*    	 background-color: white !important;    */
+/*    	 color: gray; */  
+   		 color: black !important;
+		
+	}
+/***Should apply to all input fields*****/
+	/**.dijitReset, **/
+		div input:disabled{		
+/*    	 background-color: white !important;    */
+/*    	 color: gray; */  
+   		 color: black !important;
+		
+	}
+.oneui.ecm .gridx .gridxRowOver .gridxRowTable{
+background-color: #fafafa !important;
+color:black !important;
+}
+/***When the cursor is over a selected item in the documents principal table,
+this style won't allow to change the select color style*/
+.oneui.ecm.GILTheme01 .gridxMain .gridxBody .gridxRowSelected td{
+	 background: rgba(141, 182, 240,1 ) !important; 
+}
+
+/***black letters**/
+body.ecm {
+    
+    color: #000000 !important;;
+}
+
+
+/*** Making blue the item selected on tables and dropdowns when mouse is over an item is not selected in dialog tables
+*/
+.oneui.ecm.GILTheme01 .gridx, .oneui.ecm.GILTheme01 .gridx .gridxRowSelected td, .oneui.ecm.GILTheme01 .gridx 
+.gridxBodyRowHoverEffect .gridxRowOver.gridxRowSelected, .oneui.ecm.GILTheme01 .gridx .gridxBodyRowHoverEffect 
+.gridxRowOver td, .oneui.ecm.GILTheme01 .dojoxGrid tr, .oneui.ecm.GILTheme01 .dojoxGrid
+.dojoxGridRowOver, .oneui.ecm.GILTheme01 .dojoxGrid .dojoxGridRowOver .dojoxGridCell, .oneui.ecm.GILTheme01 .ecmSearchInDropDownButtonSelected,
+.oneui.ecm.GILTheme01 .workspaceBuilder .navListItem.selected, .oneui.ecm.GILTheme01 , 
+.oneui.ecm.GILTheme01 .dijitTreeRowHover {
+	background: transparent !important;
+	color: black !important;
+}
+/***Black letter when cursor is over an item**/
+gridxRow.gridxRowOdd.gridxRowOver{
+	color:black !important;
+}
+/***Black letter when cursor is over an item in icn dropdowns**/
+.dijitTreeRow.dijitTreeRowHover{
+	color: black !important;
+}
+/**putting a specific color to the selected items***/
+	.oneui.ecm .gridx .gridxRowSelected .gridxCell,
+.oneui.ecm .dojoxGrid .dojoxGridRowSelected .dojoxGridCell {
+	
+	background-color: #93b6dfcc !important;
+	color:black !important;
+}
+/**Test in buttons should 13 px**/
+.oneui .dijitButtonText {
+ 
+    font-size: 12.7px;
+    font-family: verdana !important;
+}
+/***IGF Global Image name will appear bigger now in banner**/
+.productName{
+	font-size: 20px;
+}
+/**** Making letters from the banner to look bolder**/
+.oneui.ecm.GILTheme01 .ecmBanner *{
+	font-weight: bolder;
+}
+/****** Link labels should underlined***/
+.oneui.ecm.GILTheme01 a:link, .oneui.ecm.GILTheme01 a:visited {
+
+    text-decoration: underline;
+
+}
+/****** disabled buttons fields and dropdowns giving a legible style***/
+.oneui.ecm.GILTheme01 .dijitButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .dijitDropDownButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .dijitComboButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .dijitToggleButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .solid.dijitButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .solid.dijitDropDownButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .solid.dijitComboButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .solid.dijitToggleButtonDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .dijitSelect.dijitSelectDisabled, .oneui.ecm.GILTheme01 .dijitSpinnerDisabled .dijitDownArrowButton, .oneui.ecm.GILTheme01 .dijitSpinnerDisabled .dijitUpArrowButton, .oneui.ecm.GILTheme01 .dijitComboBoxDisabled .dijitButtonNode, .oneui.ecm.GILTheme01 .ecmDropDownInput.dijitDropDownButtonDisabled .dijitButtonNode {
+
+    color: #000000;
+    background-color: #bfd1e3 !important;
+    background-image: none;
+    border-color: #889da6 !important;
+        border-top-color: rgb(136, 157, 166);
+        border-right-color: rgb(136, 157, 166);
+        border-bottom-color: rgb(136, 157, 166);
+        border-left-color: rgb(136, 157, 166);
+    box-shadow: none;
+    opacity: 0.45;
+    font-weight: bolder;
+
+}
+/**Making principal table column titles bigger to be legible**/
+.oneui.ecm .compact .gridxHeaderRow .gridxCell, .oneui.ecm .dojoxGridHeaderRow .dojoxGridCell {
+   font-size: .894em;
+   font-family: verdana;
+}
+.oneui.ecm .compact .gridxBody .gridxCell, .oneui.ecm .dojoxGridBody .dojoxGridCell{
+	font-size: .892em;
+}
+/*****END--GLOBAL STYLES TO BE APPLIED IN ALL gil CM8.5************************************
+/*************************************/
+.capsContainer{
+	width:224px !important; 
+	padding:0px !important;
+	background-color: #ffffff00 !important;
+	border: 0px !important;
+}
+******************************************************************************************/	
+	.uppercaseField{		
+		text-transform: uppercase !important;	
+	}
+	
+	.yesNoOkButton{
+	    height:17px;
+	    width:27px;
+	}
+	
+	.cancelButton{
+	    height:17px;
+	    width:48px;
+	}
+  
+  /*** Apply blcak color for disabled drop downs ***/
+  
+ .dijitSelectDisabled{
+            color: black !important;
+            background-color: #f3f3f3 !important;
+}
+.dijitInputField {
+	color: black !important;
+} 
+/**********InvoiceELSDialog************/
+		
+		label{
+			margin-right: 3px;
+			margin-bottom: 10px;
+		}
+		.topCenterContentColumnInvoiceELS {
+    		width: 31% !important;
+		}
+		.topCenterContentColumnInvoiceELS label{
+    		width: 160px !important;
+		}
+		.topContentWrapper{
+			width: 1200px;
+			height: 205px;
+			margin-right: 0px;
+		}
+		
+		.invoiceActionBarR{
+			padding-right:570px !important;
+		}
+		.invoiceActionBarM{
+			padding-right:15px !important;
+		}
+		.middleUSContentWrapper{
+			width: 1200px;
+			height:24px;
+			margin-right: 0px;
+			padding-top:10px;
+			padding-bottom:4px;
+		}
+		.fixed-size  {
+ 			 width: 55%;
+		}
+		.contentColumn{
+			display: inline-table;
+		}
+		.topContentColumn{
+			width: 29%;
+		}
+		.topLeftContentColumnInvoiceELS{
+			width: 39%;
+		}
+		.centerContentColumnLeft{
+			width: 60.3%;	
+		}
+		.centerContentColumnRight{
+			width: 30%;	
+		}
+		.buttonContainer{
+			text-align: center;
+		}
+
+		.contentColumn label{
+			display: inline-block;
+			width: 200px;
+			text-align: right;
+		}
+		
+		.topLeftContentColumnInvoiceELS label{
+			width: 100px;
+		}
+		
+		.topCenterContentColumnInvoiceELS label{
+			width: 150px;
+		}
+		
+/***Changes for Story 1750051 - [ELS Canada] CA GIL changes*****/
+		.topRightContentColumnInvoiceELS label{
+			width: 154px;
+		}
+/***end Changes for Story 1750051 - [ELS Canada] CA GIL changes*****/
+
+		.tab1 label{
+			display: inline-block;
+			width: 200px;
+			text-align: right;
+		}
+		.tab2 label{
+			display: inline-block;
+			width: 200px;
+			text-align: right;
+			
+		}
+		.tab3 label{
+			display: inline-block;
+			width: 200px;
+			text-align: right;
+		}
+		.tab2 .inputExtra{
+			margin-bottom: 5px !important;
+		}
+		.tab3 .inputExtra{
+			margin-bottom: 10px !important;
+		}
+		
+		
+/**********End: InvoiceELSDialog************/
+
+/*********CommentsDialog*******************/
+
+.commentsTableHeader{
+	text-align: center !important;
+}
+
+/*********End:CommentsDialog*******************/
+.dijitReset.dijitInline.dijitButtonNode{
+background-color: #93b6dfcc !important;
+}
+/*********LineItemsDialog*******************/
+ .dojoxGrid .dojoxGridCell {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	
+} 
+ .dojoDndHorizontal .dojoDndItem{
+			display: table-cell;
+	}
+.lineItemActionBarR{
+		padding-right:400px !important;
+}
+.lineItemActionBarM{
+		padding-right:15px !important;
+}
+.oneui .lineItemsGrid td{
+	padding-bottom: 0px;
+    padding-top: 0px;
+}
+.oneui .lineItemsGridR td{
+	padding-bottom: 0px;
+    padding-top: 0px;
+}
+.oneui .lineItemsGridM td{
+	padding-bottom: 0px;
+    padding-top: 0px;
+}
+.lnItemContentArea{
+	padding: 2px !important;
+}
+.itemsGrid{
+	height: 190px !important;
+}
+.itemsGridR{
+	height: 190px !important;
+	width: 95% !important;
+}
+.suppliersGridR{
+	height: 350px !important;
+	width: 1100px !important;
+	
+}
+.customersGridR{
+	height: 350px !important;
+	width: 1033px !important;
+	
+}
+.itemsGridM{
+	height: 300px !important;
+	width:1170px !important;
+}
+.suppliersGridM{
+	height: 95% !important;
+	width: 1100px !important;
+}
+.customersGridM{
+	height: 95% !important;
+	width: 1033px !important;
+}
+
+.dojoxGridScrollbox.gridScrollBoxC{
+    overflow-x: hidden !important;
+/*     overflow-x:auto !important; */
+	overflow-y:scroll !important;
+}
+.LnItemstopContentWrapper{
+			width: 98%;
+			height: 95%;
+		}
+		.LnColumnLbl label{
+			width:120px !important;
+		}
+		.lnMidContentRight label{
+			width:150px !important;
+		}
+		.lnTopColumn{
+			/* width: 45% */
+			width: fit-content;
+		}
+		.lnMidColumn{
+			width: 49%
+		}
+		.lnMiddleCenter{
+			    width: 90%;
+  				margin-bottom: 0px;
+   				margin-top: 0px;
+   				margin-left: 52px;
+		}
+		
+		.border2{
+		border-bottom: 1px solid gray;
+		width:780px;
+		}
+		.lntopContentRight{
+		width:10%
+		}
+		.lntopContentLeft{
+		border-right: 1px solid gray;
+		width:20%
+		}
+		.buttonPad{
+		
+		padding-right: 1em;
+		margin-right: 5px !important;
+		margin-bottom: 5px !important;
+		margin-top: 5px !important;
+
+		}
+		.colorDropdown{
+		background-color:#93b6dfcc !important;
+		}
+		.MiddleCenter{
+			padding-left:4em;
+			padding-right:1em;
+		}
+		.lnColumn label{
+			width:120px;
+		}
+		
+		.lineItemsGrid{
+/* 		    height: 125px; */
+/* 		    width: 730px; */
+		   	height:30%;
+			width:95%;
+		  	overflow:hidden;
+		    margin: 0;
+    	}
+   		.vendorContent{
+
+		   	height:350px;
+			width: 1100px !important;
+		  	overflow:hidden;
+		   
+    	}
+    	.customerContent{
+
+		   	height:350px;
+			width: 1033px !important;
+		  	overflow:hidden;
+		   
+    	}
+    	.lineItemsGridR{
+
+		   	height:30%;
+			width:95%;
+		  	overflow:hidden;
+		    margin: 0;
+    	}
+    	  	.vendorContentR{
+
+		   	height:350px;
+			width: 1100px !important;
+		  	overflow:hidden;
+		   
+    	}
+    	  	.customerContentR{
+
+		   	height:350px;
+			width: 1033px !important;
+		  	overflow:hidden;
+		   
+    	}
+    	.lineItemsGridM{
+
+		   	height:30%;
+			
+		  	overflow:hidden;
+		    margin: 0;
+    	}
+		.vendorContentM{
+
+		   	height:95%;
+			width: 1100px !important;
+		  	overflow:hidden;
+		    margin: 0;
+    	}
+    	.customerContentM{
+
+		   	height:95%;
+			width: 1033px !important;
+		  	overflow:hidden;
+		    margin: 0;
+    	}
+		
+/*********End:LineItemsDialog***************/
+/**********US State Dialog******************/
+	.usStateContent {
+
+			margin-top: 10px;
+			margin-bottom: 10px;
+			margin-left: 25%;
+			margin-right: 15%;
+			overflow:hidden;
+	}
+	.lightOpacity{
+		opacity:.45;
+	}
+	.dijitDialogPaneContentArea.usStateOverflow{
+		overflow:scroll !important;
+	}
+/**********End US State Dialog**************/
+/**********Supplier Search Dialog************/
+
+#idSearchVendorContainer{
+    height: 1500px;
+    width: 330px;
+    overflow: auto;
+}
+
+#idSearchVendor{
+    height: 17em;
+    width: 1011px;
+	overflow: auto;
+    }
+
+.searchIcon { 
+    background-image: url("./search.png"); 
+    height: 18px; 
+    width: 18px; 
+} 
+
+
+/**********End: Supplier Search Dialog************/
+
+
+
+/****SupplierSearchELSDialog****/
+
+#idSearchVendorELS{
+height: 95%;
+width: 1035px !important;
+margin-left: 10px !important;
+overflow-y: scroll !important;
+    }
+ #idSearchVendorELSContainer{
+    height: 1500px;
+    width: 330px;
+    overflow: auto;
+}
+
+/******End:SupplierSearchELSDialog****/
+
+/****CustomerSearchELSDialog****/
+#idSearchCustomerELS{
+    height: 19em;
+    width: 1030px;
+	overflow: auto;
+}
+/******End:CustomerSearchELSDialog****/
+
+
+/**********Contract Dialog************/
+#idInvoiceList{
+    height: 14em;
+    width: 262px;
+    margin: 0;
+    overflow: auto;
+    
+    }
+    
+    .contractEcmDialogPaneActionBar{
+padding-right:180px !important
+}
+/**********End: Contract Dialog************/
+/**********Offering Letter ELS Dialog************/
+.olELSEcmDialogPaneActionBar{
+padding-right:250px !important
+}
+/**********End: Offering Letter ELS Dialog************/
+/**********COA ELS Dialog************/
+.coaELSEcmDialogPaneActionBar{
+padding-right:320px !important
+}
+/**********End COA ELS Dialog************/
+
+/**********Invoice Search Dialog************/
+#idSearchInvoice{
+    height: 19em;
+    width: 595px;
+    
+    }
+/**********End: Invoice Search Dialog************/  
+
+
+
+/**********Serial Number Dialog************/
+	.serialStartEnd{
+		 margin-right: 3px;
+		 width:18px !important;
+	}
+
+	.serialChange{
+		 margin-right: 3px !important;;
+		 width:16px !important;
+		 margin-right: 7px !important;;
+	}
+	
+	.noSpaceSerialButtonPad{	
+			margin-right: -236px !important;
+			margin-bottom:50px !important;
+			margin-top: 15px !important;
+			margin-left: 242px !important;
+		}
+
+	.serialButtonPad{
+		margin-bottom:-42px !important;
+		margin-top: 5px !important;
+		margin-right: 5px !important;
+		margin-left: 9px !important;
+
+		}
+		
+	#idSerialNumberGrid{
+	    height: 15em;
+	    width: 510px;
+	    overflow:auto;
+	        margin: 0;
+    
+    }
+		
+  /**********End Serial Number Dialog************/
+    /**********Invoice Dialog************/
+
+.invoiceNonElsEcmDialogPaneActionBar{
+padding-right:310px !important
+}
+#invoiceTableLeft{
+float: left;
+}
+
+#invoiceTableLeft td.InvoiceLabel{
+text-align:right;
+}
+
+#invoiceTableRight{
+float: left;
+margin-left:-21em;
+
+}
+
+#invoiceTableRight td.InvoiceLabel{
+text-align:right;
+}
+
+
+/**********End: Invoice Dialog************/
+
+/**********Notelog************/
+
+.displayNone{
+	display: none;
+}
+
+/**********End: Notelog************/
+
+/****OEMProductDialog******/
+
+#oemTableLeft  {
+float: left;
+/**text-align:right;***/
+
+}
+
+#oemTableRight{
+margin-top :0px;
+margin-left:600px;
+}
+
+
+#oemProductGrid{
+clear: both;
+}
+
+
+
+ .buttonPad{
+ text-align:right;
+margin-left:800px;
+}
+
+  
+ /***.dojoxGridScrollbox.gridScrollBoxOEM{
+     height: 250px !important;
+     overflow-x: none !important;
+  }***/
+  
+
+/***.oemProductGrid{
+height: 250px !important;
+width: 1000px !important;
+}***/
+
+.oemGridR{
+height: 350px !important;
+width: 1000px !important;
+}
+
+.oemGridM{
+height: 350px !important;
+width: 1000px !important;
+}
+
+.oemProductGridM{
+height: 350px !important;
+width: 1000px !important;
+
+/**height:30%;**/
+}
+.oemProductGridR{
+height: 350px !important;
+width: 1000px !important;
+
+/***height:30%;
+width:95%;**/
+
+}
+
+/****OEMProductDialog******/
+
+
+/****Misc invoice Dailog****/
+
+.miscInvoiceEcmDialogPaneActionBarR{
+padding-right: 410px; !important
+}
+.miscInvoiceEcmDialogPaneActionBarM{
+padding-right: 5px; !important
+}
+
+#miscinvoiceTable td.invoiceNumberValue{
+
+padding-right:200px;
+
+}
+#miscinvoiceTable td.invoiceAmountValue{
+
+margin-left:200px;
+
+}
+#miscinvoiceTable td.totalValue{
+
+margin-left:200px;
+
+}
+
+#miscinvoiceTable td.invoiceCurrencyValue{
+
+margin-left:200px;
+
+}
+#miscinvoiceTable td.netAmountValue{
+margin-left:200px;
+}
+
+#miscinvoiceTable  td.supplierNameValue{
+  width:200px;  
+  }
+  
+#miscinvoiceTable  td.supplierNumberValue{
+   width:100px;  
+  }
+  
+
+
+#idMiscSearchVendor {
+    height: 19em;
+    width: 1011px;
+	overflow: auto;
+    }
+
+}
+/****Misc invoice Dialog****/
+
+/***Offering Letter ***/
+
+.offeringletterNonElsEcmDialogPaneActionBarR{
+	padding-right:200px !important;
+}
+.offeringletterNonElsEcmDialogPaneActionBarM{
+	padding-right:15px !important;
+}
+/*****	Offering Letter***/	
+		

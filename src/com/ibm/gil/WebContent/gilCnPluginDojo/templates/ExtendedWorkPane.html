@@ -1,0 +1,28 @@
+<div class="ecmCenterPane">
+	<div data-dojo-type="idx.layout.BorderContainer" class="contentPane" gutters="false" design="sidebar">
+		<div data-dojo-attach-point="leadingPane" data-dojo-type="dijit.layout.ContentPane" region="leading" class="leadingPane" splitter="true">
+			<div class="navContainer" data-dojo-type="dijit.layout.BorderContainer" gutters="false">
+				<div data-dojo-attach-point="repositorySelectorArea" class="navContainerTopBar" data-dojo-type="dijit.layout.ContentPane" region="top">
+				</div>
+		        <div data-dojo-attach-point="preferences" class="navContainerTopBar" data-dojo-type="dijit.layout.ContentPane" region="top" style="display: none;">
+		             <span data-dojo-type="dijit.form.Button" class="preferencesLink" data-dojo-attach-event="onClick: _showPreferences" data-dojo-attach-point="showPreferences" baseClass="buttonLinks">
+		             	${messages.process_preferences_button_label}
+		             </span>       
+		             <div data-dojo-attach-point="separatorNode" style="display: none;" class="dijitInline separator preferencesSeparator">|</div>
+                     <span data-dojo-type="dijit.form.Button" class="preferencesLink" style="display: none;" data-dojo-attach-event="onClick: _showManageRoles" data-dojo-attach-point="manageRoles" baseClass="buttonLinks">
+                        ${messages.process_manageroles_button_label}
+                     </span>       
+		        </div>
+				<div data-dojo-attach-point="workSelectorArea" class="navContainerBottomBar" data-dojo-type="dijit.layout.ContentPane" region="center">
+				</div>
+			</div>
+		</div>
+		<div data-dojo-type="dijit.layout.ContentPane" region="center" style="width:100%;height:100%;">
+			<div data-dojo-type="dijit.layout.TabContainer" data-dojo-attach-point="inbasketTabs" style="visibility:hidden">
+				<div data-dojo-type="dijit.layout.ContentPane" region="center" style="width:100%;height:100%;">
+					<div data-dojo-type="ecm.widget.process.InbasketContainer" data-dojo-attach-point="inbasketArea" style="width:100%;height:100%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

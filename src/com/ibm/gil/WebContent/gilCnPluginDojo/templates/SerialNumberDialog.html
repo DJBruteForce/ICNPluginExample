@@ -1,0 +1,94 @@
+<form data-dojo-attach-point="serialNumberForm" name="fileUploadForm"	enctype="multipart/form-data" accept-charset="UTF-8" method="post" >
+  <table >
+  
+		<tr>
+			<td class="propertyRowLabel">
+				<label  id="serialNumber" for="serialNumber" 
+				data-dojo-attach-point="serialNumber" >Serial:</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				    data-dojo-attach-point="serialNumber" 
+				    tabindex="7" 
+				    style="width: 450px;"
+				    name="${id}_serialNumber" id="${id}_serialNumber"
+				    maxLength="80" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true"  >
+			    </div>
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="invoiceAmountLabel">Serial Number</label>&nbsp;
+			</td>
+		<tr>
+		</table>
+	<table id="serialNumberTb">
+    </table>
+    <table>
+     <tr>
+	    <button class="noSpaceSerialButtonPad" id="${id}_checkAll" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: checkAll" data-dojo-attach-point="checkAllBtn">Check All</button>
+		<button class="noSpaceSerialButtonPad" id="${id}_uncheckAll" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: uncheckAll" data-dojo-attach-point="uncheckAllBtn">Uncheck All</button>
+		<button class="noSpaceSerialButtonPad" id="${id}_checkUsed" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: checkUsed" data-dojo-attach-point="checkUsedBtn">Check Used</button>
+	</tr>
+	 <tr>
+	    <button   class="serialButtonPad" id="${id}_add" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: addSerial" data-dojo-attach-point="addBtn">Add</button>
+		<button   class="serialButtonPad" id="${id}_delete" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: deleteSerial" data-dojo-attach-point="deleteBtn">Delete</button>
+		<input class="serialButtonPad" name="uploadFile"  type="file" dojoType="dojox.form.Uploader" data-dojo-props="uploadOnSelect:false" data-dojo-attach-point="importFile"  data-dojo-attach-event="onChange: importSerial"  label="Import"  force:'html5' id="${id}_import" />
+		
+	</tr>
+    </table>
+         <table style="float: left" id="serialNumberGridTb">
+         <tr>
+         	<td class="propertyRowLabel">
+				<label  for="invoiceNumber">Vowels:</label>&nbsp;
+			</td>
+			<td>
+				<input id="${id}_vowels"  
+				name="${id}_vowels"
+				 data-dojo-attach-point="vowels"  
+				 data-dojo-type="dijit/form/CheckBox" 
+				 value="includeVowels" /> 
+				 <label for="includeVowels">Include Vowels</label>
+			</td>
+         </tr>
+     		<tr>
+			<td class="propertyRowLabel">
+				<label  for="invoiceNumber">Number to Add:</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div  data-dojo-type="ecm.widget.ValidationTextBox"   
+			   		data-dojo-attach-point="numberToAdd" 
+			   		 style="width: 30px;"	
+				   name="${id}_numbeToAdd" 
+				   id="${id}_numbeToAdd"   
+				    maxLength="5">
+					
+			    </div>
+			</td>
+			</tr>
+			<tr>
+			<td class="propertyRowLabel">
+				<label  for="invoiceNumber">Number Available</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div  data-dojo-type="ecm.widget.ValidationTextBox"  
+			   		style="width: 70px;"  
+			   	   data-dojo-attach-point="numberAvailable" 	
+				   name="${id}_numberAvailable"
+				   id="${id}_numberAvailable"   
+				   maxLength="5">
+					
+			    </div>
+			</td>
+			</tr>
+     </table>
+     
+     <table style="float: left" id="serialNumberGridTb">
+     <tr><div id="idSerialNumberGrid"></div></tr>
+     </table>
+
+     
+    </form>

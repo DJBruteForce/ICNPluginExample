@@ -1,0 +1,447 @@
+
+<div data-dojo-type="dijit/form/Form" id="${id}_miscInvoiceForm" data-dojo-id="${id}_miscInvoiceForm"  data-dojo-attach-point="miscInvoiceForm"  
+ encType="multipart/form-data" action="" method="">
+  <table id="miscinvoiceTable">
+   <tbody id="invoiceTBody">
+
+		<tr>
+			<td class="invoiceNumberLabel">
+				<label  for="invoiceNumber">Invoice Number</label>&nbsp;
+			</td>
+			<td class="invoiceNumberValue">
+			   <div
+				    data-dojo-attach-point="invoiceNumber" 
+				  	name="${id}_invoiceNumber" id="${id}_invoiceNumber"
+				    maxLength="15" 
+				     tabindex="1" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" required="true" 
+				    invalidMessage="Invoice Number is a required field."
+					missingMessage="Invoice Number is a required field."
+ 
+					>
+					
+			    </div>
+			</td>
+			
+			<td class="invoiceDateLabel">
+				<label  for="invoiceDate">Invoice Date</label>&nbsp;
+			</td>
+			<td class="invoiceDateValue">
+			   <div
+			   		data-dojo-attach-point="invoiceDate" 
+			   		data-dojo-attach-event="onChange: setCAVATCodes"
+				   name="${id}_invoiceDate" id="${id}_invoiceDate" 
+				    tabindex="13" 
+					data-dojo-type="dijit/form/DateTextBox"
+					constraints="{ min: '01/01/1950',      max: new Date()}" 
+					missingMessage="Invoice Date is a required field."
+					rangeMessage="Invoice Date must not be a future date."
+					required="true" > 
+				
+			    </div>
+			</td>		
+			
+			
+		</tr>
+		
+		<tr>
+			<td class="invoiceAmountLabel">
+				<label  for="invoiceAmountLabel">Invoice Amount</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="invoiceAmountLabel" ></div>
+			</td>
+			<td class="invoiceAmountValue">
+				<label  for="blankSpace">&nbsp;</label>
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="blankSpace" ></div>
+			</td>
+			
+			<td class="dbCRLabel">
+				<label  for="dbCr">DB/CR</label>&nbsp;
+			</td>
+			<td class="dbCRValue">
+			    <div  data-dojo-attach-point="dbCr" 
+					    name="${id}_dbCr" 
+					    id="${id}_dbCr" 
+					    data-dojo-type="ecm.widget.Select"  
+					    tabindex="14" ></div>
+			</td>		
+		</tr>
+		
+		<tr>
+			<td class="totalLabel">
+				<label  for="invoiceAmountTotal">Total</label>&nbsp;
+			</td>
+			<td class="totalValue">
+			   <div
+				   data-dojo-attach-point="invoiceAmountTotal" 
+				   data-dojo-attach-event="onChange: recalculate"
+				   name="${id}_invoiceAmountTotal" id="${id}_invoiceAmountTotal"
+				    tabindex="2" 
+				    maxLength="16" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 				    
+				    trim="true" propercase="false">
+			    </div>
+			</td>
+			
+			<td class="invoiceCurrencyLabel">
+				<label  for="invoiceCurrency">Invoice Currency</label>&nbsp;
+			</td>
+			<td class="invoiceCurrencyValue">
+			    <div  data-dojo-attach-point="invoiceCurrency" 
+			    	  tabindex="15" 
+			    	  name="${id}_invoiceCurrency" 
+			    	  id="${id}_invoiceCurrency" 
+			    	  data-dojo-type="ecm.widget.Select"
+			    	  data-dojo-attach-event="onChange: addConvination">
+				</div>
+
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="taxLabel">
+				<label  for="invoiceAmountTax">Tax</label>&nbsp;
+			</td>
+			<td class="taxValue">
+			   <div
+				   data-dojo-attach-point="invoiceAmountTax" 
+				   data-dojo-attach-event="onChange: recalculate"
+				   name="${id}_invoiceAmountTax" id="${id}_invoiceAmountTax"
+				   maxLength="16" 
+				   tabindex="3" 
+				   data-dojo-type="ecm.widget.ValidationTextBox" 
+				   trim="true" 
+				   propercase="false">
+				   
+			    </div>
+			</td>
+			<td class="invoiceTypeLabel">
+				<label  for="invoiceType">Invoice Type</label>&nbsp;
+			</td>
+			<td class="invoiceTypeValue">
+	    
+			    <div  data-dojo-attach-point="invoiceType" 
+			    		 name="${id}_invoiceType" 
+			    		 id="${id}_invoiceType" 
+			    		 data-dojo-type="ecm.widget.Select"  
+			    		 tabindex="16"
+			    		  data-dojo-attach-event="onChange: addConvination" 		    		 
+			    		 >
+			    		 
+			    </div>
+
+			</td>	
+			
+		</tr>
+		
+		<tr>
+			<td class="netAmountLabel">
+				<label  for="netAmount">Net Amount</label>&nbsp;
+			</td>
+			<td class="netAmountValue">
+			   <div
+				   data-dojo-attach-point="netAmount" 
+				   name="${id}_netAmount" id="${id}_netAmount"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			</td>
+			<td class="compCodeLabel">
+				<label  for="compCode">Comp Code</label>&nbsp;
+			</td>
+			<td class="compCodeValue">
+			    <div  data-dojo-attach-point="compCode" 
+			    		 name="${id}_compCode" 
+			    		 id="${id}_compCode" 
+			    		  maxLength="4" 
+			    		 style="width: 91px;"
+			    		 data-dojo-type="ecm.widget.ValidationTextBox"  
+			    		 tabindex="17" ></div>
+
+			</td>	
+		</tr>
+		
+		<tr id="parentAddFieldTr1">
+		
+
+			<td class="propertyRowLabel">
+				<label   for="blankSpace">&nbsp;</label>
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="blankSpace" ></div>
+			</td>
+			<td class="propertyRowLabel">
+				<label  for="blankSpace">&nbsp;</label>
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="blankSpace" ></div>
+			</td>
+			
+			<td class="propertyRowLabel">
+				<div  id="${id}_replacebleLabel1"></div>
+			</td>
+			<td class="propertyRowLabel">
+				<div id="${id}_replacebleField1"></div>
+			</td>
+			
+			
+		</tr>
+				
+		<tr >
+			<td class="taxCodeLabel">
+				<label  for="taxCode">Tax Code</label>&nbsp;
+			</td>
+			<td class="taxCodeValue">
+	    
+			    <div  data-dojo-attach-point="taxCode" 
+			     data-dojo-attach-event="onChange: recalculate"
+			    name="${id}_taxCode"
+				id="${id}_taxCode" 
+				data-dojo-type="ecm.widget.Select"  
+				tabindex="4" ></div>
+			</td>
+			
+			
+			<td class="propertyRowLabel">
+				<div  id="${id}_replacebleLabel2"></div>
+			</td>
+			<td class="propertyRowLabel">
+				<div id="${id}_replacebleField2"></div>
+			</td>		
+				
+
+		</tr>
+		
+		<tr>
+			<td class="poexCodeLabel">
+				<label  for="poexCode">POEX Code</label>&nbsp;
+			</td>
+			<td class="poexCodeValue">	    
+			    <div  data-dojo-attach-point="poexCode" 
+			     	  tabindex="5" 
+					  name="${id}_poexCode"
+					  id="${id}_poexCode" 
+					  maxLength="44" 
+					  style = "width:380px"
+					  data-dojo-type="ecm.widget.ValidationTextBox"
+			     >
+
+				</div>
+			</td>
+
+		</tr>
+		
+		
+		<tr>
+			<td class="supplierNameLabel">
+				<label  for="supplierName">Supplier Name</label>&nbsp;
+			</td>
+			<td class="supplierNameValue">
+			   <div
+				   data-dojo-attach-point="supplierName" 
+				    tabindex="6" 
+				   	name="${id}_supplierName" id="${id}_supplierName"				  
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false"
+				    maxLength="40" 
+				    style = "width:380px"
+				    data-dojo-attach-event="onChange: openVendorSearchDialogSupplierName"
+				    >
+			    </div>
+			</td>			
+		</tr>
+		
+		<tr>
+			<td class="supplierNumberLabel">
+				<label  for="supplierNumber">Supplier Number</label>&nbsp;
+			</td>
+			<td class="supplierNumberValue">
+			   <div
+				   data-dojo-attach-point="supplierNumber" 
+				   tabindex="7" 
+				   name="${id}_supplierNumber" id="${id}_supplierNumber"				    
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				   required="false" trim="true" propercase="false"
+				    maxLength="10" 
+				   data-dojo-attach-event="onChange: openVendorSearchDialogSupplierNumber"
+				   >
+			    </div>
+
+			</td>
+
+		</tr>		
+		
+	<tr>
+			<td class="ocrKidLabel">
+				<label  for="ocrKid">OCR/KID</label>&nbsp;
+			</td>
+			<td class="ocrKidValue">
+			   <div
+				   data-dojo-attach-point="ocrKid" 
+				   tabindex="11" 
+				   name="${id}_ocrKid" id="${id}_ocrKid"
+				   maxLength="25" 
+				   style = "width:200px"
+				   data-dojo-type="ecm.widget.ValidationTextBox" 
+				   required="false" trim="true" propercase="false">
+			    </div>
+			</td>
+		</tr>
+		<tr id="parentAddFieldTr2">
+		
+			
+			<td class="propertyRowLabel">
+				<div  id="${id}_replacebleLabelForDistrNum"></div>
+			</td>
+			<td class="propertyRowLabel">
+				<div id="${id}_replacebleFieldForDistrNum"></div>
+			</td>
+			
+			
+		</tr>
+		
+		<tr>
+		
+			
+		<!-- 	<td class="propertyRowLabel">
+				<div  id="${id}_replacebleLabelForProvinceCode"></div>
+			</td>
+			<td class="propertyRowLabel">
+				<div id="${id}_replacebleFieldForProvinceCode"></div>
+			</td>-->
+			
+			
+				<td class="propertyRowLabel">
+				<label id="${id}_provinceCode" for="${id}_provinceCodeCanada">Province Code</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+	    
+			    <div  data-dojo-attach-point="provinceCode" 
+			    		 name="${id}_provinceCode" 
+			    		 id="${id}_provinceCode" 
+			    		 data-dojo-type="ecm.widget.Select"  
+			    		 tabindex="16"
+			    		 data-dojo-attach-event="onChange: setCAVATCodes"
+			    		 
+			    		 >
+			    		 
+			    </div>
+
+			</td>
+			
+			
+		</tr>
+		
+		
+		</tbody>
+    </table>
+    
+
+
+    <table>
+	<tbody>
+		<tr>
+			<td class="propertyRowValue">    
+			   <div style="display: none;"
+				   data-dojo-attach-point="additionalInfo" 
+				   name="${id}_additionalInfo" id="${id}_additionalInfo"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowValue"> 
+			   <div style="display: none;"
+				   data-dojo-attach-point="team" 
+				   name="${id}_team" id="${id}_team"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowValue">
+			   <div style="display: none;"
+				   data-dojo-attach-point="dueDate" 
+				   name="${id}_dueDate" id="${id}_dueDate"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+			
+					<tr>
+			<td class="propertyRowValue">
+			   <div style="display: none;"
+				   data-dojo-attach-point="source" 
+				   name="${id}_source" id="${id}_source"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+				<tr>
+			<td class="propertyRowValue">
+			   <div style="display: none;"
+				   data-dojo-attach-point="createdTimestamp" 
+				   name="${id}_createdTimestamp" id="${id}_createdTimestamp"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true"
+				     propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowValue">
+			   <div style="display: none;"
+				   data-dojo-attach-point="userId" 
+				   name="${id}_userId" id="${id}_userId"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowValue">
+			   <div style="display: none;"
+				   data-dojo-attach-point="country" 
+				   name="${id}_country" id="${id}_country"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+		
+		</tr>
+		</tbody>
+    </table>
+    </div>

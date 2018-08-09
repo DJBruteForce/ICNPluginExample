@@ -1,0 +1,441 @@
+ <div data-dojo-type="dijit/form/Form" id="${id}_invoiceElsForm" data-dojo-id="${id}_nvoiceElsForm"  data-dojo-attach-point="nvoiceElsForm"  
+ encType="multipart/form-data" action="" method="">
+ <div id="${id}_topContent" class="topContentWrapper">
+    	<div id="${id}_topContentLeft" class="contentColumn topLeftContentColumnInvoiceELS">
+	    	<label for="${id}_invNum">Invoice Number</label> <input class="gilInputDisable" id="${id}_invNum"  name="${id}_invNum"  maxLength="15" data-dojo-attach-point="invNum" style="width: 154px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_invAmt">Invoice Amount</label> <input class="gilInputDisable" id="${id}_invAmt" name="${id}_invAmt" maxLength="16"  required="true"   trim="true" data-dojo-attach-point="invAmt" style="width: 145px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_taxAmt">Tax Amount</label> <input class="gilInputDisable" id="${id}_taxAmt" name="${id}_taxAmt"  maxLength="16" trim="true" data-dojo-attach-point="taxAmt" style="width: 145px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_netAmt">Net Amount</label> <input class="gilInputDisable" id="${id}_netAmt" name="${id}_netAmt" maxLength="16" data-dojo-attach-point="netAmt" style="width: 145px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+		    <label for="${id}_dbCr">DB/CR</label>  <select class="colorDropdown"id="${id}_dbCr" data-dojo-attach-point="dbCr"  name="${id}_dbCr" data-dojo-attach-event="onClick: adddbCrListener" data-dojo-type="ecm.widget.Select"></select><br>
+	    	<label for="${id}_invCur">Invoice Currency</label><select class="colorDropdown" id="${id}_invCur"  data-dojo-attach-point="invCur" name="${id}_invCur" data-dojo-attach-event="onClick: addInvCurListener" data-dojo-type="ecm.widget.Select" style="margin-left: 4px;"></select><br>
+			<label for="${id}_poex">POEX Code</label><select class="colorDropdown" id="${id}_poex"  name="${id}_poex"  data-dojo-attach-point="poex" data-dojo-attach-event="onClick: addPoexListener" data-dojo-type="ecm.widget.Select" style="margin-left:4px;" ></select><br>
+<!-- 			<label id="${id}_ltaxes"for="${id}_taxes">Taxes</label><input class="gilInputDisable" id="${id}_taxes" name="${id}_taxes" data-dojo-attach-point="taxes" data-dojo-attach-event="onChange: enableTaxesforIGFandCustomer" data-dojo-type="dijit/form/CheckBox" value="true"/><br> -->
+			
+	    </div>
+	    <div id="${id}_topContentCenter" class="contentColumn topContentColumn topCenterContentColumnInvoiceELS">
+	    	<label for="${id}_invDate">Invoice Date</label> 
+	    	<input class="gilInputDisable" type="text" name="${id}_invDate" id="${id}_invDate" data-dojo-type="dijit.form.DateTextBox" 
+	    		data-dojo-attach-point="invDate" maxlength="10"	constraints="{ min: '01/01/1950',      max: new Date()}" 
+					missingMessage="Invoice Date is a required field." 	rangeMessage="Invoice Date must not be a future date." 
+	    				 required="true" style="width:100px" /><br>
+
+	    	<label for="${id}_lnItemTot">Line Item Invoice Total</label> <input class="gilInputDisable" class="gilInputDisable" id="${id}_lnItemTot" maxlength="16" name="${id}_lnItemTot" data-dojo-attach-point="lnItemTot" style="width: 119px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_lnItemTxTot">Line Item Tax Total</label> <input class="gilInputDisable" id="${id}_lnItemTxTot" maxlength="16" name="${id}_lnItemTxTot" data-dojo-attach-point="lnItemTxTot" style="width: 119px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_lnItemNetTot">Line Item Net Total</label> <input class="gilInputDisable" id="${id}_lnItemNetTot" maxlength="16" name="${id}_lnItemNetTot" data-dojo-attach-point="lnItemNetTot" style="width: 119px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_refInvNum">Reference Invoice Number</label> <input class="gilInputDisable" id="${id}_refInvNum" name="${id}_refInvNum" maxLength="22" data-dojo-attach-point="refInvNum" style="width: 155px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_exchgRate">Exchange Rate</label> <input class="gilInputDisable" id="${id}_exchgRate" name="${id}_exchgRate" maxlength="9" data-dojo-attach-point="exchgRate" style="width: 77px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+<!-- 	    	<label id="${id}_ltaxBilledIgf" for="${id}_taxBilledIgf">Tax Billed to IGF</label>	<input class="gilInputDisable" id="${id}_taxBilledIgf" maxlength="16" name="${id}_taxBilledIgf" data-dojo-attach-point="taxBilledIgf" style="width: 119px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> -->
+	    	<!-- Changes for Story 1750051 - [ELS Canada] CA GIL changes -->
+			<div id="${id}_caContent" class="middleCAContentWrapper">
+				<label for="${id}_lShiptoProvinceCode">Ship to Province Code</label><select class="colorDropdown" id="${id}_shipToProvinceCode" name="${id}_shipToProvinceCode" data-dojo-attach-point="shipToProvinceCode"  data-dojo-type="ecm.widget.Select"></select><br>
+				<label id="${id}_lBilledToCustomer" for="${id}_billedToCustomer">Invoice Billed To Customer</label><input class="gilInputDisable" id="${id}_billedToCustomer" name="${id}_billedToCustomer" data-dojo-attach-point="billedToCustomer"  data-dojo-type="dijit/form/CheckBox" value="false"/><br><br>
+			</div>
+			 <!-- End Changes for Story 1750051 - [ELS Canada] CA GIL changes -->
+	    </div>
+	    <div id="${id}_topContentRight" class="contentColumn topContentColumn topRightContentColumnInvoiceELS">
+	    	<label for="${id}_invoiceType">Invoice Type</label>	<select class="colorDropdown" id="${id}_invoiceType" name="${id}_invoiceType" data-dojo-attach-point="invoiceType"  data-dojo-type="ecm.widget.Select"></select><br>
+	    	<label for="${id}_costCenter">Cost Center</label> <input class="gilInputDisable" id="${id}_costCenter" name="${id}_costCenter" maxlength="10" data-dojo-attach-point="costCenter" style="width: 80px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_purchOrdNum">Purchase Order Number</label> <input class="gilInputDisable" id="${id}_purchOrdNum"  maxlength="20" name="${id}_purchOrdNum" data-dojo-attach-point="purchOrdNum" style="width: 150px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    	<label for="${id}_coaInv">COA with Invoice</label> <input class="gilInputDisable" id="${id}_coaInv" name="${id}_coaInv" data-dojo-attach-point="coaInv" data-dojo-type="dijit/form/CheckBox" value="true"/><br>
+	    	<label for="${id}_exceptions">Exceptions</label><input class="gilInputDisable" id="${id}_exceptions" name="${id}_exceptions" data-dojo-attach-point="exceptions"  data-dojo-type="dijit/form/CheckBox" style="margin-left:4px;" value="true"/><br>
+	    	<label for="${id}_urgent">Urgent</label><input class="gilInputDisable" id="${id}_urgent" name="${id}_urgent" data-dojo-attach-point="urgent" data-dojo-type="dijit/form/CheckBox" style="margin-left:4px;" value="true"/><br>
+	    	<label for="${id}_compCode">Comp Code</label><select class="colorDropdown" id="${id}_compCode" name="${id}_compCode" data-dojo-attach-point="compCode" data-dojo-type="ecm.widget.Select" style="margin-left:4px;"></select><br>
+<!-- 			<label id="${id}_ltaxBilledCus" for="${id}_taxBilledCus">Tax Billed to Customer</label>	<input class="gilInputDisable" id="${id}_taxBilledCus" maxlength="16" name="${id}_taxBilledCus" data-dojo-attach-point="taxBilledCus" style="width: 119px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> -->
+	    </div>	
+    </div>
+    </div>
+
+	 <div id="${id}_usContent" class="middleUSContentWrapper">
+	 	<div id="${id}_usContentLeft" class="contentColumn topLeftContentColumnInvoiceELS">
+	 		<label id="${id}_ltaxes"for="${id}_taxes">Taxes</label><input class="gilInputDisable" id="${id}_taxes" name="${id}_taxes" data-dojo-attach-point="taxes" style="margin-left: 4px;" data-dojo-attach-event="onChange: enableTaxesforIGFandCustomer" data-dojo-type="dijit/form/CheckBox" value="true"/><br>
+	 	</div>
+	 	
+	 	<div id="${id}_usContentCenter" class="contentColumn topContentColumn topCenterContentColumnInvoiceELS">
+	 		<label id="${id}_ltaxBilledIgf" for="${id}_taxBilledIgf">Tax Billed to IGF</label>	<input class="gilInputDisable" id="${id}_taxBilledIgf" maxlength="16" name="${id}_taxBilledIgf" data-dojo-attach-point="taxBilledIgf" style="width: 119px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	 	</div>
+	 	<div id="${id}_usContentRight" class="contentColumn topContentColumn topRightContentColumnInvoiceELS">
+	 		<label id="${id}_ltaxBilledCus" for="${id}_taxBilledCus">Tax Billed to Customer</label>	<input class="gilInputDisable" id="${id}_taxBilledCus" maxlength="16" name="${id}_taxBilledCus" data-dojo-attach-point="taxBilledCus" style="width: 119px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	 	</div>
+	 </div>
+    <div id="${id}_tabbedContent" style="padding: 15px; width: 1050px; height: 310px; margin:2px">
+	    <div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;">
+	        <div id="${id}_olTab" data-dojo-type="dijit/layout/ContentPane" title="Offer Letter" data-dojo-props="selected:true" class="tab1" style="padding:10px; height: 300px;">
+	            <label for="${id}_olNum">Offer Letter Number</label><input class="gilInputDisable" id="${id}_olNum"  maxlength="15"  data-dojo-attach-point="olNum" style="width: 112px;" data-dojo-type="ecm.widget.ValidationTextBox" />
+	            <label for="${id}_rof" style="margin-left:10px">ROF Invoice</label><input class="gilInputDisable" id="${id}_rof"  data-dojo-attach-point="rof" name="mycheck3" data-dojo-type="dijit/form/CheckBox" value="true"/>
+	            <label for="${id}_billEntIndc" style="margin-left:148px">Bill Entity Indicator</label><input class="gilInputDisable" id="${id}_billEntIndc"  data-dojo-attach-point="billEntIndc" maxLength="1" style="width: 14px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	            <label for="${id}_olCur">Offer Letter Currency</label><input class="gilInputDisable" id="${id}_olCur"  data-dojo-attach-point="olCur" maxLength="10" style="width: 84px;" data-dojo-type="ecm.widget.ValidationTextBox" />
+	            <label for="${id}_rofOl" style="margin-left:63px">ROF Offer Letter</label><input class="gilInputDisable" id="${id}_rofOl"  data-dojo-attach-point="rofOl" name="mycheck3" data-dojo-type="dijit/form/CheckBox" value="true"/><br>
+	            <label for="${id}_coaBsp">COA BSP</label><input class="gilInputDisable" id="${id}_coaBsp"  data-dojo-attach-point="coaBsp"  maxlength="80"  style="width: 490px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	            <label for="${id}_olCustNum">Offer Letter Customer Number</label><input class="gilInputDisable" id="${id}_olCustNum"  data-dojo-attach-point="olCustNum" style="width: 63px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	            <label for="${id}_custName">Customer Name</label><input class="gilInputDisable" id="${id}_custName"  data-dojo-attach-point="custName" style="width: 350px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	            <label for="${id}_olcustAdd">Customer Address</label><input class="gilInputDisable" id="${id}_olcustAdd"  data-dojo-attach-point="olcustAdd" style="width:420px;" data-dojo-type="ecm.widget.ValidationTextBox"/><br>
+	            <!-- <label for="${id}_olcustAdd2">                </label><input class="gilInputDisable" id="${id}_olcustAdd2"  data-dojo-attach-point="olcustAdd2" style="width:420px;" data-dojo-type="ecm.widget.ValidationTextBox"/><br>
+	            <label >City/Postal Code</label><input class="gilInputDisable" id="${id}_city"  data-dojo-attach-point="city" style="width: 280px;" data-dojo-type="ecm.widget.ValidationTextBox" /><input class="gilInputDisable"  id="${id}_postalC"  data-dojo-attach-point="postalC" style="width: 126px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> -->
+	       		<label for="${id}_olcustAdd2"  style="visibility:hidden;" ></label><input class="gilInputDisable" id="${id}_olcustAdd2"  data-dojo-attach-point="olcustAdd2" style="width:420px;margin-bottom: 6px;" data-dojo-type="ecm.widget.ValidationTextBox"/><br>
+	            <label for="${id}_city">City/Postal Code</label><input class="gilInputDisable" id="${id}_city"  data-dojo-attach-point="city" style="width: 280px;" data-dojo-type="ecm.widget.ValidationTextBox" />
+	            <label for="${id}_lpostalC"  style="visibility:hidden;width: 3px;" >P</label><input class="gilInputDisable"  id="${id}_postalC"  data-dojo-attach-point="postalC" style="width: 126px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	       			       		
+	       		<!-- Changes for Story 1750051 - [ELS Canada] CA GIL changes -->
+	       		<div id="${id}_divState6"><label id="${id}_lstate" for="${id}_statea5">State</label><input class="gilInputDisable" id="${id}_statea5" maxLength="2" data-dojo-attach-point="statea5" style="width:100px;" data-dojo-type="ecm.widget.ValidationTextBox"/><br></div>
+	       		<div id="${id}_divProvince"><label id="${id}_lprovince" for="${id}_province">Province</label><input class="gilInputDisable" id="${id}_province" maxLength="2" data-dojo-attach-point="province" style="width:80px;" data-dojo-type="ecm.widget.ValidationTextBox"/><br></div>
+	        	<!-- End Changes for Story 1750051 - [ELS Canada] CA GIL changes -->	      
+	         </div>
+	    
+	        
+	        
+       <div data-dojo-type="dijit/layout/ContentPane" title="Supplier" class="tab2" style="padding:20px;"> 
+	        <tr>
+			<td class="propertyRowLabel">
+				<label  for="suppName">Supplier Name</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="suppName" 
+				    	
+				   	name="${id}_supplierName" id="${id}_supplierName"
+				    maxLength="40" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+
+				    style="width: 273px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			 </td>
+		
+		</tr> <br>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="suppNumber">Supplier Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="suppNumber" 
+				    
+				   	name="${id}_supplierNumber" id="${id}_supplierNumber"
+				    maxLength="15" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				   
+				    style="width: 133px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			  
+			</td> <br>
+			
+			<tr>
+			<td class="propertyRowLabel">
+				<label  for="legalId">Legal Id Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="legalId" 
+				    
+				   	name="${id}_legalId" id="${id}_legalId"
+				    maxLength="15" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    
+				    style="width: 105px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			
+			</td>
+			
+		</tr> <br>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="saNumber">SA Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="saNumber" 
+				    tabindex="6" 
+				   	name="${id}_saNumber" id="${id}_saNumber"
+				    maxLength="40" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    style="width: 105px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			  </td>
+			
+		</tr> <br>
+		
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="saDate">SA Date</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="saDate" 
+				    tabindex="6" 
+				   	name="${id}_saDate" id="${id}_saDate"
+				    maxLength="40" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    style="width:90px"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			  </td>
+				
+		</tr> <br>
+		
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="suppAddress">Supplier Address</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="suppAddress" 
+				    tabindex="6" 
+				   	name="${id}_suppAddress" id="${id}_suppAddress"
+				    maxLength="60" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			  </td>
+	</tr> <br>
+	
+		<tr>
+			<td class="supAdd2">
+				<label  for="suppAddress2"></label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div 
+				   data-dojo-attach-point="suppAddress2" 
+				    tabindex="6" 
+				   	name="${id}_suppAddress2" id="${id}_suppAddress2"
+				    maxLength="60" 				    
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    class="inputExtra"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			  </td>
+	</tr> <br> 
+	
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="suppAddress3"></label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+			       line-height: 30px;
+				   data-dojo-attach-point="suppAddress3" 
+				    tabindex="6" 
+				   	name="${id}_suppAddress3" id="${id}_suppAddress3"
+				    maxLength="60" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    class="inputExtra"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			  </td>
+	</tr> <br>
+		<td class="propertyRowLabel">
+				<div  id="${id}_replacebleLabel2"></div>
+			</td>
+			<td class="propertyRowLabel">
+				<div id="${id}_replacebleField2"></div>
+			</td>
+	
+	<!-- <tr>
+			<td class="propertyRowLabel">
+			<label  for="distributorNumber">Distributor Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="distributorNumber" 
+				    tabindex="6" 
+				   	name="${id}_distributorNumber" id="${id}_distributorNumber"
+				    maxLength="40" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			 </td>
+			</tr>-->
+	
+	 </div>			
+		
+	        
+	        
+	        
+
+	    
+	    <div data-dojo-type="dijit/layout/ContentPane" title="Installed Customer" class="tab3" style="padding:20px;">
+	    
+	      <tr>
+			<td class="propertyRowLabel ">
+				<label  for="instCustNum">Installed Customer Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="instCustNum" 
+				    tabindex="6" 
+				   	name="${id}_instCustNum" id="${id}_instCustNum"
+				   maxLength="8" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    
+				    style="width: 65px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			 </td>
+		
+		</tr> <br>
+		
+		  <tr>
+			<td class="propertyRowLabel">
+				<label  for="custNameSearch">Customer Name (Search)</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="custNameSearch" 
+				    tabindex="6" 
+				   	name="${id}_custNameSearch" id="${id}_custNameSearch"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    maxLength="50"
+				    style="width: 336px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			 </td>
+		
+		</tr> <br>
+		  <tr>
+			<td class="propertyRowLabel">
+				<label  for="custAdd">Customer Address</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="custAdd" 
+				    tabindex="6" 
+				   	name="${id}_custAdd" id="${id}_custAdd"
+				   	maxLength="60" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    style="width: 406px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			 </td>
+		
+		</tr> <br>
+		  <tr>
+			<td class="propertyRowLabel">
+				<label  for="custAdd2"  style="visibility:hidden;"></label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="custAdd2" 
+				    tabindex="6" 
+				   	name="${id}_custAdd2" id="${id}_custAdd2"
+				   	maxLength="60" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    
+				    style="width: 406px;margin-bottom: 5px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			 </td>
+		
+		</tr> <br>
+		  <tr>
+			<td class="propertyRowLabel">
+				<label  for="cityS">City (Search) / Postal Code</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			
+				 <div  data-dojo-attach-point="cityS" 
+				    tabindex="6" 
+				    
+				   	name="${id}_cityS" id="${id}_cityS"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    maxLength="40" 
+				  
+				    style="width: 280px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+				     </div>
+			 
+			 </td>
+		
+		</tr> 
+			<td class="propertyRowValue">
+			 
+				<div  data-dojo-attach-point="postalCS" 
+				    tabindex="6" 
+				   	name="${id}_postalCS" id="${id}_postalCS"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    maxLength="18"
+				    style="width: 126px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+				    </div>
+			  
+			 </td>
+		      <br>
+	   <tr>
+			<td class="propertyRowLabel">
+				<label  for="${id}_statea6" id="${id}_lstate1" >State</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="statea6" 
+				    tabindex="6" 
+				   	name="${id}_statea6" id="${id}_statea6"
+				    data-dojo-type="ecm.widget.ValidationTextBox"
+				    maxLength="2" 
+				    style="width: 100px;"
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			 </td>
+		
+		</tr> 
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    </div>
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	</div>
+</div>
+	<!--<div id="${id}_buttonsPanel" class="buttonContainer">
+    	<button id="${id}_lineItemsButton" data-dojo-type="ecm.widget.Button"
+    		 data-dojo-attach-event="onClick: openLineItemsDialog" data-dojo-attach-point="lineItemsButton">Line Items</button>
+    	<button id="${id}_commentsButton" data-dojo-type="ecm.widget.Button" 
+    		data-dojo-attach-event="onClick: openCommentsDialog" data-dojo-attach-point="commentsButton">Comments</button>
+    	 <button id="${id}_saveButtonNode" type="button">Save</button>
+    	<button id="${id}_cancelButtonNode" type="button">Cancel</button>
+    </div> -->

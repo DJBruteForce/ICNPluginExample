@@ -1,0 +1,141 @@
+<div data-dojo-type="dijit/form/Form" id="${id}_invoiceForm" data-dojo-id="${id}_offeringLetterForm"  data-dojo-attach-point="offeringLetterForm"  
+ encType="multipart/form-data" action="" method="">
+  <table>
+   <tbody id="invoiceTBody">
+		<tr>
+			<td class="propertyRowLabel">
+				<!--<span class="required">*</span>-->
+				<label  for="gilBackEnd_param2">Offer Letter Number</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="numberLabel" >Required field</div>
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="number" 
+				  name="${id}_number" id="${id}_number"
+				
+				    maxLength="10" 
+				    tabindex="1"
+				    data-dojo-type="ecm.widget.ValidationTextBox" required="true" 
+                    invalidMessage="Date must be in format MM/dd/yyyy."
+				>
+					
+			    </div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<!--<span class="required">*</span>-->
+				<label  for="gilBackEnd_param2">Offer Letter Amount</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="amountLabel" ></div>
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="amount" 
+				   name="${id}_amount" id="${id}_amount"
+			
+				    maxLength="15" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    
+					>
+			    </div>
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<!--<span class="required">*</span>-->
+				<label  for="gilBackEnd_param2">Offer Letter Currency</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="currencyLabel" >Required field</div>
+			</td>
+			<td class="propertyRowValue">
+	    
+			    <div  data-dojo-attach-point="currency" name="${id}_currency" id="${id}_currency" data-dojo-type="ecm.widget.Select">
+				</div>
+
+
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<!--<span class="required">*</span>-->
+				<label  for="gilBackEnd_param2">Customer Name</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="customerNameLabel" >Required field</div>
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="customerName" 
+				  name="${id}_customerName" id="${id}_customerName"
+				  
+				    maxLength="35" 
+				    style="width: 350px !important;"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="true" trim="true" propercase="false"
+				    invalidMessage="Customer Name is required field."
+					missingMessage="Customer Name is a required field."
+					>
+			    </div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="gilBackEnd_param2">Customer Number</label>&nbsp;
+				</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="customerNumber" 
+				   name="${id}_customerNumber" id="${id}_customerNumber"
+				  
+				    maxLength="8" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" trim="true" propercase="false">
+			    </div>
+			</td>
+		</tr>
+		
+			<tr>
+			<td class="propertyRowValue">
+			   <div style="display: none;"
+				   data-dojo-attach-point="createdTimestamp" 
+				   name="${id}_createdTimestamp" id="${id}_createdTimestamp"
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true"
+				     propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+		
+		
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="gilBackEnd_param2">Offer Letter Date</label>&nbsp;
+				<div data-dojo-type="dijit/Tooltip"  data-dojo-attach-point="dateLabel" >Required field</div>
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="olDate" 
+				   name="${id}_olDate" id="${id}_olDate" 
+					data-dojo-type="idx.form.DateTextBox" data-dojo-props='
+					hint: "Month/Date/Year",
+					hintPosition: "inside",
+					labelAlignment: "horizontal",
+					labelWidth: 120'
+					style="margin: 0px !important; padding: 0px !important;"
+					rangeMessage="OfferingLetter Date must not be a future date."
+					required="false"		
+					
+		'>
+			    </div>
+			</td>
+		</tr>
+		</tbody>
+    </table>
+    </div>

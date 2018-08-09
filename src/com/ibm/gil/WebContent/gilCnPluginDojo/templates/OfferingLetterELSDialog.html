@@ -1,0 +1,168 @@
+<div data-dojo-type="dijit/form/Form" id="${id}_offeringLetterForm" data-dojo-id="${id}_offeringLetterForm"  data-dojo-attach-point="offeringLetterForm"  
+ encType="multipart/form-data" action="" method="">
+  <table>
+   <tbody id="invoiceTBody">
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="offerringLetterNumberLabel">Offer Letter Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="offerringLetterNumber" 
+				  name="${id}_number" id="${id}_offerringLetterNumber"
+				    maxLength="16" 
+				     tabindex="1" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" required="true" 
+				    invalidMessage="Offer Letter Number is a required field."
+					missingMessage="Offer Letter Number is a required field."
+					>
+					
+			    </div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="gilBackEnd_param2">Offer Letter Amount</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="offerringLetterAmount" 
+				   name="${id}_amount" id="${id}_offerringLetterAmount"
+			
+				    maxLength="256" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    trim="true" propercase="false"
+				    required="true" regexp="^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$"  
+				    invalidMessage="Offering Letter Amount is required field."
+					missingMessage="Offering Letter Amount is a required field."
+					>
+			    </div>
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="offeringLetterCurrencylabel">Currency</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="offeringLetterCurrency" 
+				   name="${id}_offeringLetterCurrency" 
+				   id="${id}_offeringLetterCurrency"
+				   tabindex="4" 
+				    maxLength="3" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="false" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="customerNameLabel">Customer Name</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="offeringLetterCustomerName" 
+				  name="${id}_offeringLetterCustomerName" id="${id}_offeringLetterCustomerName"
+				    maxLength="50" 
+				     style="width: 450px;"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    invalidMessage="Custome Name is a required field."
+				    missingMessage="Custome Name is a required field."
+				    required="true" trim="true" propercase="false">
+			    </div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="offeringLetterCustomerNumber">Customer Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="offeringLetterCustomerNumber" 
+				   name="${id}_offeringLetterCustomerNumber" id="${id}_offeringLetterCustomerNumber"
+				    maxLength="10" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    invalidMessage="Offering Letter Amount is required field."
+					missingMessage="Offering Letter Amount is a required field."
+				    required="true" trim="true" propercase="false">
+			    </div>
+			</td>
+		</tr>
+		<tr data-dojo-attach-point="customerSignatureTr" >
+			<td class="propertyRowLabel">
+				<label    id='${id}_customerSignatureLabel'  for='_customerSignature'>Customer Signature</label>&nbsp;
+			</td>
+			<td>
+			   <div
+				   data-dojo-attach-point="customerSignature" 
+				  name="${id}_customerSignature" id="${id}_customerSignature"
+				    maxLength="120" 
+				     style="width: 450px;"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				     trim="true" propercase="false">
+			    </div>
+			</td>
+		</tr>
+	    <tr data-dojo-attach-point="customerSignatureDateTr">
+			<td class="propertyRowLabel">
+				<label    id='${id}_customerSignatureDateLabel'  for='customerSignatureDate'>Customer Signature Date</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+							   <div
+			   		data-dojo-attach-point="customerSignatureDate" 
+				   name="${id}_customerSignatureDate" id="${id}_customerSignatureDate" 
+				    tabindex="13" 
+					data-dojo-type="dijit/form/DateTextBox"
+					constraints="{ min: '01/01/1950',      max: new Date()}" 
+					rangeMessage="Customer Signature Date must not be a future date."
+					
+					
+				>
+			    </div>
+			</td>
+		</tr>
+		<tr data-dojo-attach-point="ibmSignatureDateTr">
+			
+			<td class="propertyRowLabel">
+				<label  id='${id}_ibmSignatureDateLabel'  for='ibmSignatureDate'>IGF/IBM Signature Date</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+			   		data-dojo-attach-point="ibmSignatureDate" 
+				   name="${id}_ibmSignatureDate" id="${id}_ibmSignatureDate" 
+				    tabindex="13" 
+					data-dojo-type="dijit/form/DateTextBox"
+					constraints="{ min: '01/01/1950',      max: new Date()}" 
+					rangeMessage="IBM/IGF Signature Date must not be a future date"
+				>
+			    </div>
+			</td>		
+		</tr>
+		
+		
+		 <tr >
+			<td class="propertyRowValue">
+			   <div
+			   style="display: none;"
+				   data-dojo-attach-point="countryCode" 
+				  name="${id}_countryCode" id="${id}_countryCode"
+				    maxLength="256" 
+				     style="width: 450px;"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				     trim="true" propercase="false">
+			    </div>
+			</td>
+		</tr>
+			
+		</tbody>
+    </table>
+    </div>

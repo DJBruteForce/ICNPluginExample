@@ -1,0 +1,116 @@
+  
+<div id="${id}_lntopContent" class="LnItemstopContentWrapper" style="padding-left: 20px;">
+	
+	<div id="${id}_lnTop" class=" border1">
+		
+	    	<div id="${id}_lntopContentLeft" class="contentColumn lntopContentLeft lnTopColumn LnColumnLbl ">
+	    		<label for="${id}_typeModel">Type / Model</label>
+		    	<input class="gilInputDisable" id="${id}_typeModel" name="${id}_group"  data-dojo-attach-event="onClick: typeModelEnable"data-dojo-attach-point="typeModel" data-dojo-type="dijit/form/RadioButton" value="Type /Model" checked="checked"/><br>
+		    	<label for="${id}_part">Part</label>
+		    	<input class="gilInputDisable" id="${id}_part" name="${id}_group" data-dojo-attach-point="part" data-dojo-attach-event="onClick: partEnable" data-dojo-type="dijit/form/RadioButton" value="Part"/><br>
+		    	<label for="${id}_otherCharge">Other Charge</label>
+		    	<input class="gilInputDisable" id="${id}_otherCharge" name="${id}_group" data-dojo-attach-point="otherCharge" data-dojo-attach-event="onClick: otherChargeEnable" data-dojo-type="dijit/form/RadioButton" value="OtherCharge"/><br>
+			
+		    </div>
+		
+	    <div id="${id}_lntopContentCenter" class="contentColumn lntopContentCenter lnTopColumn LnColumnLbl">
+	    		<label for="${id}_type">Type / Model</label>
+	    		<input class="gilInputDisable" id="${id}_type"  data-dojo-attach-point="type" maxLength="4" style="width: 45px;" data-dojo-type="ecm.widget.ValidationTextBox" />
+	            <label for="${id}_model"  style="visibility:hidden;width: 4px !important;" >M</label>
+	            <input class="gilInputDisable"  id="${id}_model"  data-dojo-attach-point="model" maxLength="4" style="width: 45px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+	    		<label for="${id}_partNum">Part Number</label> 
+	    		<input class="gilInputDisable" id="${id}_partNum" name="${id}_partNum" data-dojo-attach-point="partNum" maxLength="25" style="width: 140px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+				<label for="${id}_charge">Other Charge</label>
+<!-- 				<select class="colorDropdown" id="${id}_charge"  name="${id}_charge"  data-dojo-attach-point="charge" style="width: 350px;margin-left:2px;" data-dojo-type="dijit.form.Select"></select><br>  -->
+	    	<div id="${id}_charge"></div>
+	    </div>
+	    <div id="${id}_lntopContentRight" class="contentColumn lntopContentRight lnTopColumn LnColumnLbl">
+	    	<button id="${id}_oemButton" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: openOEMDialog" data-dojo-attach-point="oemButton">OEM Product Guide</button>
+			<br><br><br>
+	    </div>	
+   </div>
+   
+	<div class="border2"></div>
+	    	
+
+	<div id="${id}_middleContentRight" class="lnMiddle " style="padding-bottom:0px;padding-top:3px">
+		<div id="${id}_lnMidContentLeft" class="contentColumn  lnMidColumn LnColumnLbl">
+			<label for="${id}_invLnNum">Invoice Line Number</label>
+			<input id="${id}_invLnNum"  data-dojo-attach-point="invLnNum" maxLength="5" value="0" style="width: 30px;" data-dojo-type="ecm.widget.ValidationTextBox" />
+			<label for="${id}_invLnNum2"  style="width: 4px !important;" >/</label>
+			<input  id="${id}_invLnNum2"  data-dojo-attach-point="invLnNum2" maxLength="5" value="0"  style="width: 30px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br>
+			<label for="${id}_mes">MES Indicator</label><input id="${id}_mes" name="${id}_mes" data-dojo-attach-point="mes" data-dojo-type="dijit/form/CheckBox" style="margin-left: 3px;"  value="true"/><br>
+			<label for="${id}_serial">Serial</label> 
+			<input  id="${id}_serial" name="${id}_serial" data-dojo-attach-point="serial" maxLength="30" regexp="^[a-zA-Z0-9]+" invalidMessage="Serial number can only be alphanumeric." style="width: 180px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+			<label for="${id}_term">Term</label> 
+			<input  id="${id}_term" name="${id}_term" data-dojo-attach-point="term" maxLength="3"  style="width: 20px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+			<label for="${id}_unitPrice">Unit Price</label> 
+			<input  id="${id}_unitPrice" name="${id}_unitPrice" data-dojo-attach-point="unitPrice" value="0.00" maxLength="16"  style="width: 120px;" data-dojo-type="ecm.widget.ValidationTextBox" data-dojo-attach-event="onChange: formatAmount" /><br> 
+			<label for="${id}_taxCode">Tax Code</label><select class="colorDropdown" id="${id}_taxCode"  name="${id}_taxCode"  data-dojo-attach-point="taxCode" data-dojo-type="ecm.widget.Select" data-dojo-attach-event="onClick: addTaxCodeListener" style="width:300px;margin-left:3px;"></select><br> 
+			<label for="${id}_taxAmtLn">Tax Amount</label> <input  id="${id}_taxAmtLn"value="0.00" name="${id}_taxAmtLn"  maxLength="16" data-dojo-attach-point="taxAmtLn" style="width: 120px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+			<label for="${id}_costCenter">Cost Center</label> <input  id="${id}_costCenter" name="${id}_costCenter" data-dojo-attach-point="costCenter" maxLength="10" style="width: 100px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+			
+				
+		</div> 
+		
+		<div id="${id}_lnMidContentRight" class="contentColumn  lnMidColumn lnMidContentRight ">
+			
+			<label for="${id}_qty">Quantity</label>
+			<input id="${id}_qty"  data-dojo-attach-point="qty" maxLength="5" value="1" style="width: 30px;" data-dojo-type="ecm.widget.ValidationTextBox" />&nbsp;&nbsp;&nbsp;&nbsp;
+			<label id="${id}_llnBillIgf" for="${id}_lnBillIgf">Billed to IGF</label><input id="${id}_lnBillIgf"  data-dojo-attach-point="lnBillIgf" data-dojo-type="dijit/form/CheckBox" value="true"/><br>
+			<label for="${id}_mesNum">MES Number</label><input id="${id}_mesNum" maxLength="7"  regexp="^[a-zA-Z0-9]+" invalidMessage="MES number can only be alphanumeric."  name="${id}_mesNum" data-dojo-attach-point="mesNum" style="width: 60px;margin-left:3px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br><br>
+			<label for="${id}_finType">Finance Type</label>
+			<select class="colorDropdown" id="${id}_finType"  name="${id}_finType"  data-dojo-attach-point="finType" data-dojo-type="ecm.widget.Select"> 
+				<option value="">   </option>  
+				<option value="FMV">FMV</option>  
+				<option value="FMV1">FMV1</option>
+				<option value="FP">FP</option>    
+				<option value="FP1">FP1</option>  
+				<option value="FPO">FPO</option>  
+				<option value="FPS">FPS</option>  
+				<option value="FPT">FPT</option>  
+				<option value="FPX">FPX</option>  
+				<option value="IH">IH</option>     
+				<option value="IPH">IPH</option>  
+				<option value="IPS">IPS</option>  
+				<option value="IS">IS</option>    
+				<option value="LPO">LPO</option>  
+				<option value="MT">MT</option>    
+				<option value="NB">NB</option>    
+				<option value="PH">PH</option>    
+				<option value="PO">PO</option>    
+				<option value="PT">PT</option>    
+				<option value="RV">RV</option>    
+				<option value="RVT">RVT</option>  
+				<option value="SFT">SFT</option>  
+				<option value="SV">SV</option>    
+				<option value="SW">SW</option>
+			</select><br>
+			<label for="${id}_extLnPr">Extended Line Price</label>
+			 <input  id="${id}_extLnPr" name="${id}_extLnPr" data-dojo-attach-point="extLnPr" value="0.00"  maxLength="16" style="width: 120px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br><br><br>
+			<label for="${id}_totTaxAmt">Total Tax Amount</label> <input  id="${id}_totTaxAmt" value="0.00" maxLength="16" name="${id}_totTaxAmt" data-dojo-attach-point="totTaxAmt" style="width: 120px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+			<label for="${id}_poNum">Purchase Order Number</label> <input  id="${id}_poNum" name="${id}_poNum" data-dojo-attach-point="poNum" maxLength="20" style="width: 150px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+					
+		</div> 
+	
+
+	</div>	
+	<div id="${id}_middleContentCenter" class="  lnMiddleCenter LnColumnLbl">
+	<label for="${id}_desc">Description</label><input  id="${id}_desc" name="${id}_desc" data-dojo-attach-point="desc" maxLength="80" style="width: 648px;margin-left:6px;" data-dojo-type="ecm.widget.ValidationTextBox" /><br> 
+	
+	</div>
+	<div  class="MiddleCenter">
+	 <button class="buttonPad" id="${id}_add" data-dojo-type="dijit.form.Button"	 data-dojo-attach-event="onClick: addLnItem" data-dojo-attach-point="add">Add</button>
+	<button class="buttonPad" id="${id}_update" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: updateLnItem" data-dojo-attach-point="update">Update</button>
+	<button class="buttonPad" id="${id}_delete" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: deleteLnItem" data-dojo-attach-point="deleteB">Delete</button>
+	<button class="buttonPad" id="${id}_clear" data-dojo-type="dijit.form.Button"	 data-dojo-attach-event="onClick: clearLnItem" data-dojo-attach-point="clear">Clear</button>
+	<input class="buttonPad"  id="${id}_importTS" name="uploadFile"  type="file" dojoType="dojox.form.Uploader" data-dojo-props="uploadOnSelect:false" data-dojo-attach-point="importTS"  data-dojo-attach-event="onChange: importSerial"  label="Import T/S" uploadOnSelect="false" force:'html5' isDebug="true" />
+<!-- 	<button class="buttonPad" id="${id}_importTS" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: importSerial" data-dojo-attach-point="importTS">Import T/S</button> -->
+	<input class="buttonPad"  id="${id}_importPart" name="uploadFile2"  type="file" dojoType="dojox.form.Uploader" data-dojo-props="uploadOnSelect:false" data-dojo-attach-point="importPart"  data-dojo-attach-event="onChange: importParts"  label="Import Part" uploadOnSelect="false" force:'html5' isDebug="true" />
+<!-- 	<button class="buttonPad" id="${id}_importPart" data-dojo-type="ecm.widget.Button"	 data-dojo-attach-event="onClick: importPart" data-dojo-attach-point="importPart">Import Part</button> -->
+	</div>
+	<div class="lineItemsGrid" id='${id}_lineItems'>
+	</div>
+ 
+    
+</div>

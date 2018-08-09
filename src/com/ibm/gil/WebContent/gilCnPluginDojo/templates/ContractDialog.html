@@ -1,0 +1,165 @@
+
+<div data-dojo-type="dijit/form/Form" id="${id}_contractForm" data-dojo-id="${id}_contractForm"  data-dojo-attach-point="contractForm"  
+ encType="multipart/form-data" action="" method="">
+  <table style="float: left">
+   <tbody id="contractTBody">
+
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="invoiceNumber">Contract Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				    data-dojo-attach-point="contractNumber" 
+				  	name="${id}_contractNumber" id="${id}_contractNumber"
+				    maxLength="10" 
+				     tabindex="1" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" required="true" 
+				    invalidMessage="Contract Number is a required field."
+					missingMessage="Contract Number is a required field."
+ 
+					>
+					
+			    </div>
+			</td>
+			
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="invoiceAmountTotal">Contract Amount</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="contractAmount" 
+					   name="${id}_contractAmount" id="${id}_contractAmount"
+				    tabindex="2" 
+				    maxLength="16" 
+				    data-dojo-attach-event="onChange: formatAmount"
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    required="true" regexp="^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$"  
+				    invalidMessage="Contract Amount must be > 0.00"
+				    missingMessage="Contract Amount is a required field."
+				    trim="true" propercase="false">
+			    </div>
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+
+				<label  for="invoiceCurrency">Contract Currency</label>&nbsp;
+
+			</td>
+			<td class="propertyRowValue">
+			    <div  data-dojo-attach-point="contractCurrency" 
+			    	  tabindex="3" 
+			    	  name="${id}_contractCurrency" 
+			    	  id="${id}_contractCurrency" 
+			    	  data-dojo-type="ecm.widget.Select">
+				</div>
+
+			</td>
+		</tr>	
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="offeringLetterNumber">Offering Letter Number</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="contractOfferingLetterNumber" 
+				   name="${id}_contractOfferingLetterNumber" 
+				   id="${id}_contractOfferingLetterNumber"
+				   tabindex="4" 
+				    maxLength="10" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    trim="true" 
+				    propercase="false">
+			    </div>
+			</td>
+		</tr>
+		<tr>
+			<td class="propertyRowLabel">
+				<label  id="customerNameLabel" for="customerName" 
+				data-dojo-attach-point="customerNameLabel" >Customer Name</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				    data-dojo-attach-point="contractCustomerName" 
+				    tabindex="5" 
+				    style="width: 310px;"
+				    name="${id}_contractCustomerName" id="${id}_contractCustomerName"
+				    maxLength="35" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    trim="true"
+				    propercase="false"
+				>
+			    </div>
+			</td>
+		</tr>
+		<tr >
+			<td class="propertyRowLabel">
+			<label  id="${id}_customerNumberLabel" for="customerNumber"  >Customer Number</label>
+
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				   data-dojo-attach-point="contractCustomerNumber" 
+				   tabindex="6" 
+				   name="${id}_contractCustomerNumber" id="${id}_contractCustomerNumber"
+				   maxLength="8" 
+				   data-dojo-type="ecm.widget.ValidationTextBox" 
+				   required="false" 
+				   trim="true" 
+				   propercase="false">
+			    </div>
+			</td>
+		</tr>	
+		<tr>
+			<td class="propertyRowLabel">
+				<label  for="invoiceNumber">Invoice Number/Date</label>&nbsp;
+			</td>
+			<td class="propertyRowValue">
+			   <div
+				    data-dojo-attach-point="contractInvoiceNumber" 
+				  	name="${id}_invoiceNumber" id="${id}_invoiceNumber"
+				    maxLength="15" 
+				     tabindex="1" 
+				    data-dojo-type="ecm.widget.ValidationTextBox" 
+				    invalidMessage="Invoice Number is a required field."
+					missingMessage="Invoice Number is a required field."
+ 
+					>
+					
+			    </div>
+			   	&nbsp;<label  for="invoiceNumber">/</label>&nbsp;
+			    <div
+			   		data-dojo-attach-point="contractInvoiceDate" 
+				   name="${id}_invoiceDate" id="${id}_invoiceDate" 
+				    tabindex="8" 
+					data-dojo-type="dijit/form/DateTextBox"
+					constraints="{ min: '01/01/1950',  }" 
+					missingMessage="Invoice Date is a required field."
+					rangeMessage="Invoice Date must not be a future date."
+				>
+				</div>
+			</td>
+			<td>
+				<label  for="blankSpace">&nbsp;</label>
+			</td>
+			</tr>
+		</tbody>
+    </table>
+    <table style="float: left" >
+    <tbody>			
+			<tr>
+				<td align='center'>
+					<label  for="invoicesGrid">Invoices</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id='idInvoiceList'></div>
+				</td>
+			</tr>
+		</tbody>
+    </table>
+    </div>
