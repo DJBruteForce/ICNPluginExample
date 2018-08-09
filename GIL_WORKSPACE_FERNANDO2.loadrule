@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Built from the sandbox "C:\GIL\GIL_WORKSPACE_FERNANDO2" and the workspace "Global Image Release 19.0 Development Stream-Fernando2 Workspace"--><!--Generated: 2018-05-23 17.16.45--><scm:sourceControlLoadRule xmlns:scm="http://com.ibm.team.scm" eclipseProjectOptions="import" version="1">
+    <itemLoadRule>
+        <component itemId="_0pzkAMHfEeCvn7o6pknanA"/>
+        <!-- <component name="GIL_Component" /> -->
+        <item itemId="_bwE04MHgEeCeGo8_jUaToQ" itemType="folder"/>
+        <!-- <item repositoryPath="/GILClient" /> -->
+    </itemLoadRule>
+    <itemLoadRule>
+        <component itemId="_0pzkAMHfEeCvn7o6pknanA"/>
+        <!-- <component name="GIL_Component" /> -->
+        <item itemId="_RuJFcAWrEeevTsWOsG16AQ" itemType="folder"/>
+        <!-- <item repositoryPath="/GCPS_WS_Consumer_JAX_WS" /> -->
+    </itemLoadRule>
+    <itemLoadRule>
+        <component itemId="_0pzkAMHfEeCvn7o6pknanA"/>
+        <!-- <component name="GIL_Component" /> -->
+        <item itemId="_vbNEcMuFEeaMq5dkBlVs7w" itemType="folder"/>
+        <!-- <item repositoryPath="/GILCNPlugin" /> -->
+    </itemLoadRule>
+</scm:sourceControlLoadRule>

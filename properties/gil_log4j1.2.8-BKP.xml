@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+        
+  <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%-5p] [%X{userName}%d{yyyyMMddHHmmss}][%X{sessionId}](%-80l)[%X{actionId}][%m] %n"/>
+    </layout>
+  </appender>
+
+<!--   <appender name="FileAppender" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${gil.log.path}/GILClient.log"/>
+    <param name="Append" value="true" />
+    <param name="ImmediateFlush" value="true" />
+    <param name="MaxFileSize" value="10MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%-5p] [%X{userName}%d{yyyyMMddHHmmss}][%X{sessionId}](%-80l)[%X{actionId}][%m] %n"/>
+    </layout>
+  </appender> -->
+  
+  
+   <appender name="FileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="File" value="${gil.log.path}/GILClient.log"/>
+       <param name="Append" value="true" />
+       <param name="ImmediateFlush" value="true" />
+       <param name="DatePattern" value="'.'yyyy-MM-dd" />
+              <layout class="org.apache.log4j.PatternLayout">
+          <param name="ConversionPattern" value="%d [%-5p] [%X{userName}%d{yyyyMMddHHmmss}][%X{sessionId}](%-80l)[%X{actionId}][%m] %n"/>          
+       </layout>
+    </appender>
+  
+   <appender name="FileAppenderWS" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${gil.log.path}/GILClient_WS.log"/>
+    <param name="Append" value="true" />
+    <param name="ImmediateFlush" value="true" />
+    <param name="MaxFileSize" value="10MB" />
+    <param name="MaxBackupIndex" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%-5p] (%-80l) [%X{userName}%d{yyyyMMddHHmmss}][%X{sessionId}](%-80l)[%X{actionId}][%m] %n"/>
+    </layout>
+  </appender>
+  
+  
+     <appender name="ErrorAppender" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="${gil.log.path}/GILClient_ERR.log"/>
+    <param name="Append" value="true" />
+    <param name="ImmediateFlush" value="true" />
+    <param name="MaxFileSize" value="10MB" />
+    <param name="MaxBackupIndex" value="10" />
+	    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+	         <param name="LevelMin" value="ERROR" />
+	         <param name="LevelMax" value="FATAL" />
+	     </filter>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d [%-5p] (%-80l) [%X{userName}%d{yyyyMMddHHmmss}] [%X{sessionId}](%-80l)[%X{actionId}][%m] %n"/>
+    </layout>
+  </appender>
+
+
+    <logger name="com.ibm.mm.sdk" additivity="false">
+        <level value="FATAL" />
+        <appender-ref ref="ConsoleAppender" />
+         <appender-ref ref="ErrorAppender"/>
+    </logger>
+     <logger name="com.ibm.soap.security" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="FileAppenderWS"/>
+        <appender-ref ref="ConsoleAppender" />
+    </logger>
+    <logger name="WsLogger" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="ConsoleAppender" />
+         <appender-ref ref="FileAppenderWS"/>
+    </logger>
+    
+        <logger name="com.ibm.mm.sdk.internal.sql" additivity="false">
+        <level value="FATAL" />
+        <appender-ref ref="ConsoleAppender" />
+        <appender-ref ref="FileAppender"/> 
+         <appender-ref ref="ErrorAppender"/>
+    </logger>
+    
+            <logger name="com.ibm.mm.sdk.internal" additivity="false">
+        <level value="FATAL" />
+        <appender-ref ref="ConsoleAppender" />
+        <appender-ref ref="FileAppender"/>
+         <appender-ref ref="ErrorAppender"/>
+    </logger>
+    
+    
+     <logger name="com.filenet.pch" additivity="false" >
+        <level value="FATAL" />
+        <appender-ref ref="ConsoleAppender" />
+        <appender-ref ref="FileAppender"/>
+         <appender-ref ref="ErrorAppender"/> 
+    </logger>
+    
+    <logger name="com.ibm.gil" additivity="false">
+     <level value="debug" />
+     <appender-ref ref="ConsoleAppender"/>
+     <appender-ref ref="FileAppender"/> 
+     <appender-ref ref="ErrorAppender"/>
+    </logger>
+    
+          <logger name="com.ibm.igf" additivity="false">
+        <level value="debug" />
+      <appender-ref ref="FileAppender"/>
+     <appender-ref ref="ConsoleAppender"/>
+      <appender-ref ref="ErrorAppender"/>
+    </logger>
+    
+    
+      <logger name="com.ibm.igf.webservice" additivity="false">
+        <level value="debug" />
+      <appender-ref ref="FileAppenderWS"/>
+     <appender-ref ref="ConsoleAppender"/>
+      <appender-ref ref="ErrorAppender"/>
+    </logger>
+    
+  <logger name="org.apache" additivity="false">
+     <level value="FATAL"/>  
+     <appender-ref ref="ConsoleAppender"/>
+     <appender-ref ref="FileAppender"/> 
+  </logger>
+  
+    <logger name="com.ibm.igf.contentmanager.rmi.ContentManagerImplementation" additivity="false">
+     <level value="FATAL"/>  
+     <appender-ref ref="ConsoleAppender"/>
+     <appender-ref ref="FileAppender"/> 
+      <appender-ref ref="ErrorAppender"/>
+  </logger>
+  
+  
+
+  <root>
+    <priority value ="FATAL" />
+    <appender-ref ref="ConsoleAppender"/>
+    <appender-ref ref="FileAppender"/>
+  </root>
+
+</log4j:configuration> 

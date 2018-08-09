@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    
+    <Console name="STDOUT">
+      <PatternLayout pattern="%d [%-5p] [%X{userName}%d{yyyyMMddHHmmss}] [%X{sessionId}] (%-80l) [%X{actionId}] [%m] %n"/>
+    </Console>
+    
+    
+     <RollingFile name="GILCNPlugin_WS"  append="true" ImmediateFlush="true" FileName="${sys:gil.log.path}/GILCNPlugin_WS.log"
+       FilePattern="${sys:gil.log.path}/GIL_LOG_HISTORY/GILCNPlugin_WS-%d{yyyy-MM-dd}.log.zip"> 
+       
+         <Policies>
+    		<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+  		</Policies>
+ 	    <DefaultRolloverStrategy max="5" />
+    	<PatternLayout pattern="%d [%-5p] [%X{userName}%d{yyyyMMddHHmmss}] [%X{sessionId}] (%-80l) [%X{actionId}] [%m] %n"/>
+    </RollingFile>
+    
+     <RollingFile name="GILCNPlugin"  append="true" ImmediateFlush="true" FileName="${sys:gil.log.path}/GILCNPlugin.log"
+       FilePattern="${sys:gil.log.path}/GIL_LOG_HISTORY/GILCNPlugin-%d{yyyy-MM-dd}.log.zip"> 
+       
+         <Policies>
+    		<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+  		</Policies>
+ 	    <DefaultRolloverStrategy max="5" />
+    	<PatternLayout pattern="%d [%-5p] [%X{userName}%d{yyyyMMddHHmmss}] [%X{sessionId}] (%-80l) [%X{actionId}] [%m] %n"/>
+    </RollingFile>
+    
+      <RollingFile name="GILCNPluginErr"  append="true" ImmediateFlush="true" FileName="${sys:gil.log.path}/GILCNPlugin_Err.log"
+       		FilePattern="${sys:gil.log.path}/GIL_LOG_HISTORY/GILCNPlugin_Err-%d{yyyy-MM-dd}.log.zip"> 
+	       <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+	       <ThresholdFilter level="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
+         <Policies>
+    		<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+  		</Policies>
+ 	    <DefaultRolloverStrategy max="5" />
+    	<PatternLayout pattern="%d [%-5p] [%X{userName}%d{yyyyMMddHHmmss}] [%X{sessionId}] (%-80l) [%X{actionId}] [%m] %n"/>
+    </RollingFile>
+    
+    
+
+  </Appenders>
+  <Loggers>
+    <Root level="debug">
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+    
+     <Logger name="com.ibm.gil" level="debug">
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="GILCNPlugin"/>
+       <AppenderRef ref="GILCNPluginErr"/>
+      
+    </Logger>
+    
+     <Logger name="com.ibm.igf" level="debug">
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="GILCNPlugin"/>
+       <AppenderRef ref="GILCNPluginErr"/>
+    </Logger>
+    
+    
+    
+    <Logger name="com.ibm.igf.contentmanager.rmi" level="info">
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="GILCNPlugin"/>
+        <AppenderRef ref="GILCNPluginErr"/>
+    </Logger>
+
+    <Logger name="com.ibm.mm.sdk" level="fatal">
+      <AppenderRef ref="STDOUT"/>
+      <AppenderRef ref="GILCNPlugin"/>
+        <AppenderRef ref="GILCNPluginErr"/>
+    </Logger>
+    
+    <logger name="com.ibm.soap.security"  level="debug" >
+        <AppenderRef ref="STDOUT" />
+        <AppenderRef ref="GILCNPlugin_WS"/>
+          <AppenderRef ref="GILCNPluginErr"/>
+    </logger>
+    
+        <logger name="com.ibm.igf.webservice"  level="debug" >
+        <AppenderRef ref="STDOUT" />
+        <AppenderRef ref="GILCNPlugin_WS"/>
+          <AppenderRef ref="GILCNPluginErr"/>
+    </logger>
+
+    <logger name="WsLogger" level="debug" >
+        <AppenderRef ref="STDOUT" />
+        <AppenderRef ref="GILCNPlugin"/>
+         <AppenderRef ref="GILCNPluginErr"/> 
+    </logger>
+    
+
+  </Loggers>
+</Configuration>

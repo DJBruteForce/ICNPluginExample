@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- Run this build in case build_package_versioning.xml finishes with error leaving unfinished tasks.-->
+
+<project name="GILCNPlugin" default="all" basedir=".">
+    
+	<property file="${basedir}/gil.version"/>
+	
+	<target name="all" depends="clean" />
+
+
+	<echo>Delete temporary files</echo>
+	<target name="clean">
+		<delete dir="temp" />
+		<delete quiet="true" dir="${basedir}/GILCNPlugin.jar" />
+		<delete file="${basedir}/lib/external-libs.jar"/>
+		<delete file="${basedir}/lib/CLEANED_external-libs.jar"/>
+		
+		<echo>Deleting folders under ${packaging.label}</echo>
+		<delete dir="${basedir}/src/com/ibm/gil/WebContent/${packaging.label}"/>
+
+		<echo>Replacing back files in folder ${packaging.label} by gilCnPluginDojo</echo>
+		<replace dir="${basedir}/src/" token="${packaging.label}"  value="gilCnPluginDojo">
+		  <include name="**/*.*"/>
+		  <exclude name="**/gil.version" />
+		</replace>
+		
+		<echo>Replacing back reference ${packaging.label} by gilCnPluginDojo in file GilCnPlugin.js</echo>
+		<replace dir="${basedir}/src/" token="${packaging.label}"  value="gilCnPluginDojo">
+		  <include name="com/ibm/WebContent/GilCnPlugin.js"/>
+		  <exclude name="**/gil.version" />
+		</replace>
+								
+		<delete file="${basedir}/src/com/ibm/gil/WebContent/${packaging.label}.css"/>
+
+	</target>
+
+
+</project>

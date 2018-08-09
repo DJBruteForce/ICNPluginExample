@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<project name="GILCNPlugin" default="all" basedir=".">
+    
+ 
+
+	<target name="all" depends="clean,compile,jar" />
+
+	<path id="classpath">
+		<pathelement location="C:\Program Files (x86)\IBM\ECMClient\lib\navigatorAPI.jar" />
+		<pathelement location="./lib/commons-codec-1.11.jar" />	
+		<pathelement location="./lib/GCPSCommon.jar" />
+		<pathelement location="./lib/java-json.jar" />
+		<pathelement location="./lib/GCPS_WS_Consumer_JAX_WS.jar" />
+		<pathelement location="./lib/j2ee.jar" />
+		<pathelement location="./lib/processinvoice-request.jar" />
+		<pathelement location="./lib/searchrdc-response.jar" />
+		<pathelement location="./lib/searchrdc-request.jar" />
+		<pathelement location="./lib/retrieverdc-request.jar" />
+		<pathelement location="./lib/retrieverdc-response.jar" />
+		<pathelement location="./lib/jaxb1-impl.jar" />
+		<pathelement location="./lib/gson-2.8.0.jar" />
+		<pathelement location="./lib/log4j-api-2.3.jar" />
+		<pathelement location="./lib/log4j-core-2.3.jar" />
+		<pathelement location="./lib/cmbicmsdk81.jar" />
+		<pathelement location="./lib/dgs_persist_webservice_types.jar" />
+		<pathelement location="./lib/org.eclipse.emf.common_2.6.0.v20100914-1218.jar" />
+		<pathelement location="./lib/org.eclipse.emf.commonj.sdo_2.3.0.v200801221930.jar" />
+		<pathelement location="./lib/org.eclipse.emf.ecore.sdo_2.4.0.v200801221930.jar" />
+		<pathelement location="./lib/org.eclipse.emf.ecore.xmi_2.5.0.v20100521-1846.jar" />
+		<pathelement location="./lib/org.eclipse.emf.ecore_2.6.1.v20100914-1218.jar" />
+		<pathelement location="./lib/spring-context-4.3.7.jar" />
+		<pathelement location="./lib/spring-beans-4.3.7.jar" />
+		<pathelement location="./lib/commons-logging-1.2.jar" />
+		<pathelement location="./lib/spring-core-4.3.7.RELEASE.jar" />
+		<pathelement location="./lib/spring-jdbc-4.3.7.jar" />
+		<pathelement location="./lib/spring-tx-4.3.7.jar" />
+		<pathelement location="./lib/spring-expression-4.3.7.RELEASE.jar" />
+		<pathelement location="./lib/gson-2.8.0.jar" />
+		<pathelement location="./lib/aopalliance-1.0.jar" />
+		<pathelement location="./lib/spring-aop-4.3.7.RELEASE.jar" />
+		<pathelement location="./temp" />
+	</path>
+
+	<echo>Delete temporary files</echo>
+	<target name="clean">
+		<delete dir="temp" />
+		<delete file="./lib/external-libs.jar"/>
+		<delete file="./lib/CLEANED_external-libs.jar"/>
+	</target>
+
+	<echo>Compiling plugin files.</echo>
+	<target name="compile">
+		<mkdir dir="temp" />
+		<javac srcdir="src" destdir="temp" source="1.6" target="1.6" debug="true">
+			<classpath refid="classpath" />
+			<include name="**/*.java" />
+			
+		</javac>
+	</target>
+	
+	
+	<echo>Copying all system libraries to 1 jar external-libs.jar</echo>
+	<jar jarfile="./lib/external-libs.jar">
+	  <zipgroupfileset dir="lib">
+	    <include name="**/*.jar"/>
+	  </zipgroupfileset>
+	</jar>
+	
+	<sleep seconds="1"/>
+	
+	<echo>Removing signature files *.RSA and *.SF from inside META_INF folder and creating a new jar called CLEANED_external-libs.jar</echo>
+	<jar destfile="./lib/CLEANED_external-libs.jar">
+        <zipfileset src="lib/external-libs.jar" excludes="**/*.RSA,**/*.SF"/>
+    </jar>
+
+	
+	<target name="jar">
+		<copy todir="temp">
+			<fileset dir="src">
+				<include name="**/WebContent/**" />
+				<include name="**/*.xml" />
+				<include name="**/*.cya" />
+			</fileset>
+			  <fileset dir=".">
+			    <include name="**/properties/**"/>
+			  </fileset>
+			
+		</copy>
+		
+		<echo>Generating GILCNPlugin.jar with all external libraries in CLEANED_external-libs.jar</echo>
+		<jar jarfile="GILCNPlugin.jar">
+			<zipgroupfileset dir="lib" includes="CLEANED_external-libs.jar" />
+			<fileset dir="./temp" includes="**/*" />
+			
+			<manifest>
+				<attribute name="Plugin-Class" value="com.ibm.gil.GilCnPlugin" />
+				<section name="build">
+					<attribute name="Built-By" value="${user.name}" />
+					<attribute name="Build" value="${TODAY}" />
+					<attribute name="Class-Path" value="./src/ /lib/spring-aop-4.3.7.RELEASE.jar /lib/aopalliance-1.0.jar /lib/gson-2.8.0.jar ./lib/spring-core-4.3.7.RELEASE.jar lib/spring-context-4.3.7.jar lib/spring-beans-4.3.7.jar lib/spring-expression-4.3.7.RELEASE.jar /lib/commons-logging-1.2.jar lib/spring-jdbc-4.3.7.jar lib/spring-tx-4.3.7.jar" />
+					
+				</section>
+			</manifest>
+		</jar> 
+		<delete dir="./temp" />		
+
+	</target>
+
+
+</project>
